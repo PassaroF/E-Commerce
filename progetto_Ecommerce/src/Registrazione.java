@@ -68,7 +68,9 @@ public class Registrazione extends HttpServlet {
 				String port = "3306";
 				String db = "database_bs";
 				String username = "root";
+
 				String password = "Fabio1959";
+
 			 Class.forName("com.mysql.cj.jdbc.Driver");
 			 con= DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+db+"?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
 
