@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,4 +106,113 @@
 	<h2><a href ="registrazione.html">Registrazione</a></h2>
 	</div>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+</head>
+<style>
+	{
+		margin:0px;
+		padding:0px;
+	}
+	#container
+	{
+		width:550px;
+		background-color:rgba(250,250,252,.9);
+		margin:auto;
+		margin-top:10px;
+		margin-bottom:10px;
+		box-shadow:0 0 3px #999;	
+	
+		}
+	#container-body{padding:20px;}
+	.form_title{
+		font-size:35px;
+		color:#141823;
+		text-align:center;
+		padding:10px;
+		font-weight:normal;
+	}
+	.head_para{
+		font-size:19px;
+		color:#99a2a7;
+		text-align:center;
+		font-weight:normal; 
+	}
+	#email_form{
+		clear:both;
+		padding:15px 0 10px 0px;
+	}
+	.input_email{
+		width:434px;
+		padding:5px;
+		font-size:18px;
+	}
+	#sign_user{
+		font-size:14px;
+		color:#FFF;
+		text-align:center;
+		backgroud-color:#385998;
+		padding:10px;
+		cursor:pointer;
+	}
+	
+	#errorBox{
+		color:blue;
+
+	}
+</style>
+<script>
+	function Invio(){
+	var email_check=/^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/;
+	var email=document.form.Email.value,
+	pass=document.form.Password.value;
+		
+		if(email==""){
+			document.form.Email.focus();
+			document.getElementById("errorBox").innerHTML="Inserire Email";
+			return false;
+		}
+		if(pass==""){
+			document.form.Password.focus();
+			document.getElementById("errorBox").innerHTML="Inserire Password";
+			return false;
+		}
+		
+		if(email != "" && pass!=""){
+			document.getElementById("errorBox").innerHTML="Login Effettuato";
+		}
+	} 
+
+
+</script>
+<body>
+	<div id="container">
+		<div id="container_body">
+			<div>
+				<h2 class="form_title">Login</h2>
+				<p class="head_para"></p>
+			</div>
+		<div id="form_name">
+			<div class="nome">
+				<form action="Login" method="post" name="form">
+				<div id="errorBox"></div>			
+			</div>
+		<div id="email_form">
+		<input type="text" name="Email" value="" placeholder="Email" class="input_email">
+		</div>
+		<div id="password_form">
+		<input type="password" name="Password" value="" placeholder="Password" class="input_password">
+		</div>
+		<input type="submit" id="sign_user" onClick="return Invio();" value="Login ">
+		</form>
+		</div>
+		</div>
+	<h2><a href ="registrazione.html">Registrazione</a></h2>
+	</div>
+</body>
+>>>>>>> branch 'master' of https://github.com/PassaroF/e-commerce.git
 </html>
