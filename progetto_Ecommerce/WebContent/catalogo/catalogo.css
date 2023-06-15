@@ -26,6 +26,10 @@ h1 {
     margin-top: 10px;
   }
   
-  .prodotto p {
-    margin-top: 5px;
+
+
+  .barra-ricerca{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
   }

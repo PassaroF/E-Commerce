@@ -1,9 +1,8 @@
 const catalogo = [
     {
-      nome: "Prodotto 1",
-      descrizione: "Descrizione del prodotto 1",
-      immagine: "prodotto1.jpg",
-      prezzo: 19.99
+      nome: "Mini-PC MSI Cubi 5 10M-640EU",
+      immagine: "MINI1.jpg",
+      prezzo: 729.90
     },
     {
       nome: "Prodotto 2",
@@ -25,17 +24,13 @@ const catalogo = [
     const prodottoElement = document.createElement("div");
     prodottoElement.classList.add("prodotto");
   
-    const immagineElement = document.createElement("img");
-    immagineElement.src = prodotto.immagine;
-    prodottoElement.appendChild(immagineElement);
-  
     const nomeElement = document.createElement("h3");
     nomeElement.innerText = prodotto.nome;
     prodottoElement.appendChild(nomeElement);
-  
-    const descrizioneElement = document.createElement("p");
-    descrizioneElement.innerText = prodotto.descrizione;
-    prodottoElement.appendChild(descrizioneElement);
+
+    const immagineElement = document.createElement("img");
+    immagineElement.src = prodotto.immagine;
+    prodottoElement.appendChild(immagineElement);
   
     const prezzoElement = document.createElement("p");
     prezzoElement.innerText = `Prezzo: $${prodotto.prezzo.toFixed(2)}`;
