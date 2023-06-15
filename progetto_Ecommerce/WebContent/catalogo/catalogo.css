@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+  }
+  
+  #catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .prodotto {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .prodotto img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .prodotto h3 {
+    margin-top: 10px;
+  }
+  
+  .prodotto p {
+    margin-top: 5px;
+  }
