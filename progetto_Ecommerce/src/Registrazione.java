@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -222,4 +220,4 @@ public class Registrazione extends HttpServlet {
 	}
 
 }
->>>>>>> branch 'master' of https://github.com/PassaroF/e-commerce.git
+

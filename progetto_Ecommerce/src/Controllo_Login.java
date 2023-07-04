@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -90,4 +90,4 @@ public class Controllo_Login {
 	}
 
 
->>>>>>> branch 'master' of https://github.com/PassaroF/e-commerce.git
+
