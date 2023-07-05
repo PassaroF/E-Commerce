@@ -91,7 +91,7 @@ body {
     border-radius: 5px;
 }
 
-#input::placeholder {
+#input:placeholder {
     font-weight: bold;
 }
 
