@@ -1,7 +1,11 @@
 const catalogo = [
     {
       nome: "Mini-PC MSI Cubi 5 10M-640EU",
+<<<<<<< HEAD
       immagine: "logo3.jpg",
+=======
+      immagine: "MINI1.jpg",
+>>>>>>> branch 'master' of https://github.com/PassaroF/e-commerce.git
       prezzo: 729.90
     },
     {
