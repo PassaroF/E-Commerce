@@ -29,7 +29,7 @@
 	} 
 	.head_para{
 		font-size:19px;
-		color:#99a2a7;
+		color: #99a2a7;
 		text-align:center;
 		font-weight:normal; 
 	}
@@ -134,12 +134,16 @@
 	
 	if(nome==""){
 		document.form.Nome.focus();
+		document.form.Nome.style.borderColor='red';
 		document.getElementById("errorBox").innerHTML="Inserire Nome";
-	return false;}
+		
+	return false;}else{
+		document.form.Nome.style.borderColor='green';
+	}
 	
 	if(cognome==""){
 		document.form.Cognome.focus();
-		document.getElementById("errorBox").innerHTML="Inserire Cognome";
+		document.getElementById("errorBoxC").innerHTML="Inserire Cognome";
 		return false;}
 	
 	
@@ -229,12 +233,14 @@
 		<div id="form_name">
 			<div class="nome">
 				<form action="Registrazione" method="post" name="form">
-				<div id="errorBox"></div>	
+					
 				
 			<input type="text" name="Nome" value="" placeholder="Nome" class="input_name">
+			<div id="errorBox"></div>
 			</div>	</div>
 			<div id="cognome_form">
 		<input type="text" name="Cognome" value="" placeholder="Cognome" class="input_email">
+		<div id="errorBoxC"></div>
 		</div>	
 		<div id="email_form">
 		<input type="text" name="Email" value="" placeholder="Email" class="input_email">

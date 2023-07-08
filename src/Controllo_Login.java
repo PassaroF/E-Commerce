@@ -21,7 +21,7 @@ public class Controllo_Login {
 					String db = "database_bs";
 					String username = "root";
 
-					String password = "Fabio1959";
+					String password = "Marano1996";
 
 					
 

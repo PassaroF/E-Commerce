@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
+@WebServlet(name="loginServlet",value="/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,18 +40,18 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
-		String email=request.getParameter("Email");
-		String pass=request.getParameter("Password");
+		String email=request.getParameter("email");
+		String pass=request.getParameter("password");
 		
 		if(Controllo_Login.controllo(email, pass)) {
 			RequestDispatcher rd=request.getRequestDispatcher("index.html");
-			 rd.include(request, response);
+			 rd.forward(request, response);
 			
 
 		}else {
-			out.print("email o password errate!!");
-			RequestDispatcher rd=request.getRequestDispatcher("login.html");
-			 rd.include(request, response);
+			
+			RequestDispatcher rd=request.getRequestDispatcher("registrazione.html");
+			 rd.forward(request, response);
 			
 		}
 		
