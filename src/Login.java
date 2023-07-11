@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,15 +43,24 @@ public class Login extends HttpServlet {
 		
 		String email=request.getParameter("email");
 		String pass=request.getParameter("password");
-		
-		if(Controllo_Login.controllo(email, pass)) {
+        
+		if(Pattern.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@byteshop.it",email))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("footer.html");
+			 rd.forward(request, response);
+			
+		}
+		else if(Controllo_Login.controllo(email, pass)) {
+			
 			RequestDispatcher rd=request.getRequestDispatcher("index.html");
 			 rd.forward(request, response);
 			
 
 		}else {
 			
-			RequestDispatcher rd=request.getRequestDispatcher("registrazione.html");
+			request.setAttribute("mess","Email o Password errata!");
+			
+			RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
 			 rd.forward(request, response);
 			
 		}

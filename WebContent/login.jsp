@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -20,7 +22,7 @@ function control(){
 	  if(email==""){
 			document.form.email.focus();
 			document.getElementById('email').style.borderColor='red';
-			document.getElementById("error").innerHTML="Inserire Email";
+			document.getElementById('error').innerHTML="Inserire Email";
 			
 		return false;
 	    }else if(email.match(email_check)){
@@ -63,14 +65,15 @@ function control(){
                 <label for="password">Password</label>
                 <input id="password" name="password" value="" type="password">
                 <div class="error1" id="error1"></div>
-                <div class="error" id="mess" value=""></div>
+                <span style="color: red;">${mess}</span>
             </div>
             
-            <h3><a href ="registrazione.html">Sei un nuovo utente? Registrati</a></h3>
-           <div class="spa" id="spa">*</div>
+            <h3><a href ="registrazione.html">Sei un nuovo utente? Registrati</a></h3><br>
+          
 
             <button type="submit" id="sign_user" onClick="return control();">Login</button>
         </form>
     </div>
 </body>
+</html>
 </html>

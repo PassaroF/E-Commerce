@@ -30,11 +30,15 @@ body {
 #form button {
     padding: 10px;
     margin-top: 10px;
-    width: 100%;
+ 	
+    display: block;
+    margin: 0 auto;
+    width: 100px;
     color: white;
     background-color: rgb(41, 57, 194);
     border: none;
     border-radius: 4px;
+     text-align: center;
 }
 
 .input-control {
@@ -72,4 +76,19 @@ padding:0;
     color: #ff3860;
     font-size: 12px;
     height: 13px;
+}
+
+.input-control .error1{
+	color: red;
+
+	
+}
+#spa{
+	color:white;
+	opacity:0.9;
+	
+}
+.input-control .mess{
+	color: red;
+	
 }
