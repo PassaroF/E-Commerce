@@ -7,7 +7,7 @@ public class Creazione_db {
 	ID int NOT NULL AUTO_INCREMENT,
 	nome varchar(255) NOT NULL,
 	cognome varchar(255),
-	via varchar(255),
+ 	via varchar(255),
 	civico varchar(255),
 	nazione varchar(255),
 	provincia varchar(255),

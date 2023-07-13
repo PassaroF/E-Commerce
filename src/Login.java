@@ -2,6 +2,8 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import Model.ordini;
+import Model.ordiniDAO;
 
 /**
  * Servlet implementation class Login
@@ -46,10 +51,19 @@ public class Login extends HttpServlet {
         
 		if(Pattern.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@byteshop.it",email))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("footer.html");
-			 rd.forward(request, response);
+			ordiniDAO service=new ordiniDAO();
 			
-		}
+			
+			ArrayList<ordini>ord=service.doFindAllOrders();
+			
+			if(ord!=null) {
+			request.setAttribute("ordini",ord);
+						
+			RequestDispatcher rd=request.getRequestDispatcher("admin.jsp");
+			 rd.forward(request, response);
+			}else {RequestDispatcher rd=request.getRequestDispatcher("footer.html");
+			 rd.forward(request, response);}
+	}
 		else if(Controllo_Login.controllo(email, pass)) {
 			
 			RequestDispatcher rd=request.getRequestDispatcher("index.html");
