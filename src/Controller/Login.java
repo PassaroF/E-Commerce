@@ -50,8 +50,11 @@ public class Login extends HttpServlet {
 		String email=request.getParameter("email");
 		String pass=request.getParameter("password");
         
-		if(Pattern.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@byteshop.it",email))
-		{
+		if(Pattern.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@byteshop.it",email)) {
+			String nome=null;
+			nome=Controllo_Admin.check(email, pass);
+			if(nome!=null){
+					
 			ordiniDAO service=new ordiniDAO();
 			
 			
@@ -59,11 +62,19 @@ public class Login extends HttpServlet {
 			
 			if(ord!=null) {
 			request.setAttribute("ordini",ord);
-						
+			request.setAttribute("nome",nome);		
 			RequestDispatcher rd=request.getRequestDispatcher("admin.jsp");
 			 rd.forward(request, response);
-			}else {RequestDispatcher rd=request.getRequestDispatcher("footer.html");
-			 rd.forward(request, response);}
+			}
+			}
+			
+			else {
+
+					request.setAttribute("mess","Email o Password errata1!");
+					RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+					 rd.forward(request, response);
+				 
+			 }
 	}
 		else if(Controllo_Login.controllo(email, pass)) {
 			

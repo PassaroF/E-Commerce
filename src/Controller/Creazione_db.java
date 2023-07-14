@@ -50,6 +50,7 @@ public class Creazione_db {
 	indirizzo varchar(255),
 	totale varchar(255),
 	prodotti varchar(255),
+	data varchar(15),
 
 
 	PRIMARY KEY (ID)

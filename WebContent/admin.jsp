@@ -60,7 +60,7 @@
                 <input type="text" placeholder="Search here...">
             </div>
             
-            <h3>francesco Passaro PB</h3>
+            <h3>${nome}</h3>
         </div>
 
         <div class="dash-content">
