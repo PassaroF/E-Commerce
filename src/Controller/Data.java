@@ -85,15 +85,19 @@ String nome=request.getParameter("nome");
 			Date data4 = dateFormat.parse(data1);
 			
 			 for(ordini o:ord){
-				 Date data2 = dateFormat.parse(o.getData());
+				 String dt=o.getData();
+				 System.out.println(dt);
+			 Date data2 = dateFormat.parse(dt);
 			 if((data2.equals(data3) || data2.after(data3))&&(data2.equals(data4)||data2.before(data4))) {
-				 ordini g=new ordini(o.getId(),o.getDestinatario(),o.getIndirizzo(),o.getData(),o.getTotale(),o.getProdotti());
+				 ordini g=new ordini(o.getId(),o.getDestinatario(),o.getIndirizzo(),o.getTotale(),o.getProdotti(),dt);
 				 ordini.add(g); 
 			 }
 			 
 			 }
 				if(ord2!=null) {
-					request.setAttribute("dati",ordini);
+					ArrayList<ordini> ordini1=new ArrayList<>();
+					ordini1=ordini;
+					request.setAttribute("dati",ordini1);
 					request.setAttribute("nome",nome);
 				request.setAttribute("ordini",ord2);		
 				RequestDispatcher rd=request.getRequestDispatcher("admin.jsp");

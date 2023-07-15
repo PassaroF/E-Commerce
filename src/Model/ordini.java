@@ -9,18 +9,32 @@ public class ordini {
 	private String indirizzo;
 	private String totale;
 	private String prodotti;
+	private String data;
 
 	
 
 
 
-	public ordini(int id, String destinatario, String indirizzo, String totale, String prodotti) {
+	public ordini(int id, String destinatario, String indirizzo, String totale, String prodotti, String data) {
+		super();
 		this.id = id;
-        this.destinatario = destinatario;
-        this.indirizzo = indirizzo;
-        this.totale = totale;
-        this.prodotti = prodotti;
+		this.destinatario = destinatario;
+		this.indirizzo = indirizzo;
+		this.totale = totale;
+		this.prodotti = prodotti;
+		this.data = data;
 	}
+
+	
+	public String getData() {
+		return data;
+	}
+
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
 
 	public int getId() {
 		return id;

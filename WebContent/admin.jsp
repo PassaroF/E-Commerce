@@ -123,14 +123,14 @@
          ord1 = 
             (ArrayList<ordini>)request.getAttribute("dati");
          if(ord1!=null){
-        for(ordini o:ord1){%>
+        for(ordini g:ord1){%>
                     <tr>
-                <td><%=o.getId()%></td>
-                <td><%=o.getDestinatario()%></td>
-                <td><%=o.getIndirizzo() %></td>
-                <td><%=o.getData() %></td>
-                <td><%=o.getTotale()%></td>
-                <td><%=o.getProdotti() %></td>
+                <td><%=g.getId()%></td>
+                <td><%=g.getDestinatario()%></td>
+                <td><%=g.getIndirizzo() %></td>
+                <td><%=g.getData() %></td>
+                <td><%=g.getTotale()%></td>
+                <td><%=g.getProdotti() %></td>
                
             </tr>
                     <%}}%>
