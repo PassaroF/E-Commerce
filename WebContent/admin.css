@@ -17,7 +17,7 @@
     --toggle-color: #DDD;
     --box1-color: #4DA3FF;
     --box2-color: #FFE6AC;
-    --box3-color: #E7D1FC;
+    --box3-color: #FFF;
     --title-icon-color: #fff;
     
     /* ====== Transition ====== */
@@ -335,8 +335,8 @@ nav.close ~ .dashboard .top{
     background-color: var(--box2-color);
 }
 .boxes .box.box3{
-    background-color: var(--box3-color);
-}
+background-color: transparent;
+  border: none;}
 .dash-content .activity .activity-data{
     display: flex;
     justify-content: space-between;

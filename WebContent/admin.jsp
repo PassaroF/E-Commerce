@@ -15,10 +15,6 @@
   
     <title>Admin Dashboard Panel</title> 
 </head>
-
-
-
-
 <body>
 
     <nav>
@@ -32,10 +28,6 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
-                    <i class="uil uil-estate"></i>
-                    <span class="link-name">Dahsboard</span>
-                </a></li>
                 <li><a href="#">
                     <i class="uil uil-files-landscapes"></i>
                     <span class="link-name">Catalogo</span>
@@ -54,13 +46,8 @@
 
     <section class="dashboard">
         <div class="top">
-
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div>
-            
-            <h3>${nome}</h3>
+            <h3 id="nome">${nome}</h3>
+           
         </div>
 
         <div class="dash-content">
@@ -71,25 +58,85 @@
                 </div>
 
                 <div class="boxes">
+                
                     <div class="box box1">
-                        <i class="uil uil-thumbs-up"></i>
-                        <span class="text">Total Likes</span>
-                        <span class="number">50,120</span>
+                    <form id="form" action="Admin" method="post" name="form" >
+                    <input type="hidden" name="nome" value="${nome}">
+                     <div style="text-align: center;">
+       					     <i class="uil uil-user"></i>
+       					     <span class="text">Ricerca Cliente</span>
+       				 </div>
+                        
+                         <input id="cliente" name="cliente" placeholder="inserire nome cliente" value="" type="text"style="display: block; margin: 0 auto; width: 100%;">
+                
+                        
+                       <button type="submit" id="search" style="display: block; margin: 0 auto; width: 100px;">Ricerca</button>
+                   </form>
                     </div>
-                    <div class="box box2">
-                        <i class="uil uil-comments"></i>
-                        <span class="text">Comments</span>
-                        <span class="number">20,120</span>
+                     <div class="box box2">
+                    <form id="form" action="Data" method="post" name="form" >
+                     <input type="hidden" name="nome" value="${nome}">
+                     <div style="text-align: center;">
+       					     <i class="uil uil-calendar-alt"></i>
+       					     <span class="text">Ricerca Data</span>
+       				 </div>
+                        
+                         <input id="data" name="data" placeholder="inserire data inizio" value="" type="text"style="display: block; margin: 0 auto; width: 100%;">
+                         <input id="data1" name="data1" placeholder="inserire data fine" value="" type="text"style="display: block; margin: 0 auto; width: 100%;">
+               
+                        
+                       <button type="submit" id="search1" style="display: block; margin: 0 auto; width: 100px;">Ricerca</button>
+                   </form>
+                   
+    
+     
                     </div>
-                    <div class="box box3">
-                        <i class="uil uil-share"></i>
-                        <span class="text">Total Share</span>
-                        <span class="number">10,120</span>
-                    </div>
+                    <div class="box box3" type="hidden"></div>
+                    
                 </div>
             </div>
 
             <div class="activity">
+            <div class="title">
+                    <i class="uil uil-clock-three"></i>
+                    <span class="text">Clienti</span>
+    </div>
+    <div class="messaggio">
+    
+     <font color="red">
+     				<h3 id="not" >${mess}</h3>
+     				</font>
+     </div>
+     <div class="activity-data">
+    
+						<table id="table" border ="1" width="100%" align="center">
+							 <tr>
+          <th><b>ID</b></th>
+          <th><b>CLIENTE</b></th>
+          <th><b>INDIRIZZO</b></th>
+          <th><b>DATA</b></th>
+          <th><b>TOTALE</b></th>
+         <th><b>PRODOTTO</b></th>
+         </tr>         
+                 <%
+                 ArrayList<ordini> ord1 = null;
+         ord1 = 
+            (ArrayList<ordini>)request.getAttribute("dati");
+         if(ord1!=null){
+        for(ordini o:ord1){%>
+                    <tr>
+                <td><%=o.getId()%></td>
+                <td><%=o.getDestinatario()%></td>
+                <td><%=o.getIndirizzo() %></td>
+                <td><%=o.getData() %></td>
+                <td><%=o.getTotale()%></td>
+                <td><%=o.getProdotti() %></td>
+               
+            </tr>
+                    <%}}%>
+     
+							</table>
+							</div>
                 <div class="title">
                     <i class="uil uil-clock-three"></i>
                     <span class="text">Ordini</span>
@@ -98,24 +145,30 @@
 							<table border ="1" width="100%" align="center">
          <tr>
           <th><b>ID</b></th>
-          <th><b>DESTINATARIO</b></th>
+          <th><b>CLIENTE</b></th>
           <th><b>INDIRIZZO</b></th>
+          <th><b>DATA</b></th>
           <th><b>TOTALE</b></th>
          <th><b>PRODOTTO</b></th>
+         <th><b>AZIONI</b></th>
          </tr>
                        
                         
                  <%ArrayList<ordini> ord = 
             (ArrayList<ordini>)request.getAttribute("ordini");
+                 if(ord!=null){
         for(ordini o:ord){%>
                     <tr>
                 <td><%=o.getId()%></td>
                 <td><%=o.getDestinatario()%></td>
                 <td><%=o.getIndirizzo() %></td>
+                <td><%=o.getData() %></td>
                 <td><%=o.getTotale()%></td>
                 <td><%=o.getProdotti() %></td>
+               <td> <button type="submit" id="sign_user" onClick="">Modifica<%=o.getId()%></button>
+                <button type="submit" id="sign_user" onClick="">Elimina</button><td>
             </tr>
-                    <%}%>
+                    <%}}%>
                     </table>
                 </div>
               
@@ -123,6 +176,13 @@
             </div>
         </div>
     </section>
-    <script src="admin.js"></script>
+    
+   
+   
+   <script>
+	   
+	</script>
+
+
 </body>
 </html>
