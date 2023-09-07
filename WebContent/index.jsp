@@ -11,15 +11,21 @@
 <title>homepage</title>
 </head>
 <body>
+
 <header>
 	<a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
 	<div class="group">
 	<ul class="navigation">
 		<li><a href="#">Home</a></li>
 		<li><a href="#">Offerte</a></li>
-		<li><a href="#">Catalogo</a></li>	
+		<li><a href="#">Catalogo</a></li>
+		<ion-icon name="person-outline" class="account"></ion-icon>
+	<ion-icon name="cart-outline" class="cart"></ion-icon>
+		
+			
 		
 	</ul>
+
 	<div class="search">
 		<span class="icon">
 		<ion-icon name="search-outline" class="btncerca"></ion-icon>
@@ -34,6 +40,17 @@
 	
 	</div>
 </header>
+
+<section id="prodottiS">
+	<h2>I nostri prodotti PC</h2>
+		<div class="pro-container">
+		<div class="prodotto"></div>
+		
+		</div>
+
+</section>
+
+
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
