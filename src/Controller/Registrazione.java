@@ -70,7 +70,7 @@ public class Registrazione extends HttpServlet {
 				String db = "database_bs";
 				String username = "root";
 
-				String password = "Marano@1996";
+				String password = "Marano1996";
 
 			 Class.forName("com.mysql.cj.jdbc.Driver");
 			 con= DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+db+"?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
@@ -93,9 +93,17 @@ public class Registrazione extends HttpServlet {
 			 int i=ps.executeUpdate();
 			 if(i>0) {
 			 out.print("successo");
-			 RequestDispatcher rd=request.getRequestDispatcher("login.html");
+			 RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
 			 rd.include(request, response);
-			 }
+			 }else {
+					
+					request.setAttribute("mess","Errore in fase di registrazione!RIPROVARE");
+					
+					
+					RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+					 rd.forward(request, response);
+					
+				}
 			 
 		 }catch(Exception e) {
 			 

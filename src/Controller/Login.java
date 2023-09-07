@@ -78,7 +78,7 @@ public class Login extends HttpServlet {
 	}
 		else if(Controllo_Login.controllo(email, pass)) {
 			
-			RequestDispatcher rd=request.getRequestDispatcher("index.html");
+			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 			 rd.forward(request, response);
 			
 
