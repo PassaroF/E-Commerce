@@ -19,14 +19,15 @@ body{
 ul{
 	list-style: none;
 }
-.footer{
-	position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: auto;
-	background-color:#0f2027;
-    padding: 20px 0;
+
+.footer {
+	margin-top:30px;
+    position: relative; /* Utilizza il posizionamento relativo */
+    width: 100%;
+    background-color: #333; /* Imposta il colore di sfondo desiderato */
+    color: #fff; /* Imposta il colore del testo desiderato */
+    padding: 10px; /* Imposta il padding desiderato per il footer */
+    z-index: 1; /* Imposta un valore di z-index per renderlo visibile sopra il contenuto */
 }
 .footer-col{
    width: 50%;
