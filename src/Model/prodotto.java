@@ -9,6 +9,7 @@ public class prodotto {
 	private String categoria;
 	private String immagine;
 	private String marca;
+	private String sconto;
 	
 	
 	
@@ -26,6 +27,19 @@ public class prodotto {
 		this.categoria = categoria;
 		this.immagine = immagine;
 		this.marca = marca;
+	}
+	public prodotto(int id, String nome, String costo, String descrizione, String unita,String sconto, String categoria,
+			String marca,String immagine) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.costo = costo;
+		this.descrizione = descrizione;
+		this.unita = unita;
+		this.categoria = categoria;
+		this.immagine = immagine;
+		this.marca = marca;
+		this.sconto = sconto;
 	}
 	
 	public int getId() {
@@ -75,6 +89,12 @@ public class prodotto {
 	}
 	public void setMarca(String marca) {
 		this.marca = marca;
+	}
+	public String getSconto() {
+		return sconto;
+	}
+	public void setSconto(String sconto) {
+		this.sconto = sconto;
 	}
 	
 	

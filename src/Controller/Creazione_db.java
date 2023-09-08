@@ -22,25 +22,38 @@ public class Creazione_db {
 	PRIMARY KEY (ID)
 	)
 
+CREATE TABLE offerte
+	(
+	ID int NOT NULL AUTO_INCREMENT,
+	nome varchar(255) NOT NULL,
+	costo varchar(255),
+	descrizione varchar(255),
+	immagine varchar(255),
+	unita varchar(255),
+	sconto varchar(255),
+	categoria varchar(255),
+    marca varchar(255),
+	
 
-	use database_bs;
+
+	PRIMARY KEY (ID)
+	)
 	CREATE TABLE prodotti
 	(
 	ID int NOT NULL AUTO_INCREMENT,
 	nome varchar(255) NOT NULL,
 	costo varchar(255),
 	descrizione varchar(255),
-	immagnine varchar(255),
+	immagine varchar(255),
 	unita varchar(255),
-	recensione varchar(255),
-	voto varchar(255),
+	sconto varchar(255),
 	categoria varchar(255),
-	n_voto varchar(255),
+    marca varchar(255),
+	
 
 
 	PRIMARY KEY (ID)
 	)
-
 
 	use database_bs;
 	CREATE TABLE ordini

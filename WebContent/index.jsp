@@ -49,6 +49,51 @@
 	
 	</div>
 </header>
+<section id="off">
+	<h2>Le nostre Offerte</h2>
+<div class="off-container">
+    <%
+        // Crea un'istanza del JavaBean
+        BeanIndex bean2 = new BeanIndex();
+
+        // Recupera i dati dal JavaBean
+        ArrayList<prodotto> off = bean2.getOff();
+
+        // Utilizza i dati nella pagina JSP
+        if (off != null) {
+            for (prodotto o : off) {
+    %>	
+		<div class="offerta">
+		<img src="immagini/<%= o.getImmagine() %>"  alt="">
+
+				<div class="descr2">
+					<span><%= o.getMarca() %></span>
+					<h5><%= o.getNome() %></h5>
+					<h4><%= o.getCosto() %>€</h4>
+					<h4><del style="color: red;"><%= o.getSconto() %>€</del></h4>
+				</div>
+				<ion-icon name="cart-outline" class="carrello2"></ion-icon>
+				
+		</div>
+		
+    <%
+            }
+        } else {
+    %>
+            <li>
+                <font color="red">
+                    <h3 id="not">Errore, ricaricare la pagina</h3>
+                </font>
+            </li>
+    <%
+        }
+    %>
+
+	
+		
+		
+		</div>
+</section>
 
 
 	<section id="prod">
@@ -72,6 +117,7 @@
 					<span><%= p.getMarca() %></span>
 					<h5><%= p.getNome() %></h5>
 					<h4><%= p.getCosto() %>€</h4>
+					
 				</div>
 				<ion-icon name="cart-outline" class="carrello"></ion-icon>
 				
@@ -99,6 +145,7 @@
 
 	<section id="cons">
 	<h2>Le Nostre Console</h2>
+	<h3>XBOX</h3>
 		<div class="con-container">
 		<%
         // Crea un'istanza del JavaBean

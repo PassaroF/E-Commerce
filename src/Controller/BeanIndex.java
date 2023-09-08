@@ -11,11 +11,15 @@ public class BeanIndex {
 	
 	ArrayList<prodotto>pro=service.doFindAllPc();
 	ArrayList<prodotto>pro1=service.doFindX();
+	ArrayList<prodotto>pro2=service.doFindOff();
 	
 	public ArrayList<prodotto>getPc() {
         return pro;
     }
 	public ArrayList<prodotto>getX() {
         return pro1;
+    }
+	public ArrayList<prodotto>getOff() {
+        return pro2;
     }
 }

@@ -234,53 +234,55 @@ flex-direction:column;
 
 }
 
-/*prodotti*/
+/*offerte*/
 
-#prod{
+#off{
     margin-top: 180px;
-    margin-left:20px;
-   
-    width: 100%; 
+    
+    width: 100%;
+    padding:20px 20px 20px 20px; 
     text-align:center;
+    background:#ff4d4d;
 }
-#prod h2{
+#off h2{
 	
 	 font-size: 46px;
 }
-#prod .prodotto{
+#off .offerta{
 	width:22%;
 	margin-top:20px;
 	margin-right:30px;
+	padding :20px;
 	
-	padding:20px 20px 20px 20px;
 	border:1px solid #cce7d0;
 	border-radius:25px;
 	cursor:pointer;
-	box-shadow:20px 20px 30px rgba(0,0,0,0.02);
+	box-shadow:20px 20px 30px rgba(0,0,0,0.2);
 	background:#fff;
 	transition:0.2s ease;
 	position:relative;
+
 	
 	
 }
-#prod .prodotto .descr{
+#off .offerta .descr2{
 	text-align:start;
 	padding:10px 0;
 		
 }
 
-#prod .prodotto .descr span{
+#off .offerta .descr2 span{
 	color:#606063;
 	font-size:14px;
 }
-#prod .prodotto .descr h5{
+#off .offerta .descr2 h5{
 	
 	padding-top:5px;
 	color:#1a1a1a;
 	font-size:16px;
 		
 }
-#prod .prodotto .descr h4{
+#off .offerta .descr2 h4{
 	
 	padding-top:5px;
 	color:#1a1a1a;
@@ -288,13 +290,13 @@ flex-direction:column;
 		
 }
 
-#prod .pro-container{
+#off .off-container{
 	 display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 	
 }
-#prod .prodotto .carrello{
+#off .offerta .carrello2{
 	width:30px;
 	height:30px;
 	line-height:30px;
@@ -308,11 +310,11 @@ flex-direction:column;
 	margin-bottom:10px;
 }
 
-#prod .prodotto:hover{
-	box-shadow:20px 20px 30px rgba(0,0,0,0.08);
+#off .offerta:hover{
+	box-shadow:20px 20px 30px rgba(0,0,0,0.8);
 	
 }
-#prod .prodotto img{
+#off .offerta img{
 	width:50%;
 	border-radius:20px;
 	
@@ -333,6 +335,13 @@ flex-direction:column;
 #cons h2{
 	
 	 font-size: 46px;
+	 
+}
+#cons h3{
+	
+	 font-size: 32px;
+	 text-align:left;
+	 
 }
 #cons .console{
 	width:22%;
@@ -396,10 +405,100 @@ flex-direction:column;
 }
 
 #cons .console:hover{
-	box-shadow:20px 20px 30px rgba(0,0,0,0.2);
+	box-shadow:20px 20px 30px rgba(0,0,0,0.8);
 	
 }
 #cons .console img{
+	width:50%;
+	border-radius:20px;
+	
+	
+}
+
+/*prodotti*/
+#prod{
+    margin-top: 40px;
+    padding-bottom: 20px; 
+    padding-left: 20px;
+    width: 100%; 
+    text-align:center;
+    
+     
+    
+}
+
+#prod h2{
+	
+	 font-size: 46px;
+	 
+}
+
+#prod .prodotto{
+	width:22%;
+	margin-top:20px;
+	margin-right:30px;
+	min-width:250px;
+	padding:20px 20px 20px;
+	border:1px solid #cce7d0;
+	border-radius:25px;
+	cursor:pointer;
+	box-shadow:20px 20px 30px rgba(0,0,0,0.09);
+	background:#fff;
+	transition:0.2s ease;
+	position:relative;
+	
+	
+}
+#prod .prodotto .descr{
+	text-align:start;
+	padding:10px 0;
+		
+}
+
+#prod .prodotto .descr span{
+	color:#606063;
+	font-size:14px;
+}
+#prod .prodotto .descr h5{
+	
+	padding-top:5px;
+	color:#1a1a1a;
+	font-size:16px;
+		
+}
+#prod .prodotto .descr h4{
+	
+	padding-top:5px;
+	color:#1a1a1a;
+	font-size:15px;
+		
+}
+
+#prod .pro-container{
+	 display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+	
+}
+#prod .prodotto .carrello{
+	width:30px;
+	height:30px;
+	line-height:30px;
+	 border-radius:50px;
+	background-color:#e8f6ea;
+	font-weight:500;
+	color: #0f2027;
+	padding:3px;
+	border:1px solid #cce7d0;
+	margin-right: -180px;
+	margin-bottom:10px;
+}
+
+#prod .prodotto:hover{
+	box-shadow:20px 20px 30px rgba(0,0,0,0.8);
+	
+}
+#prod .prodotto img{
 	width:50%;
 	border-radius:20px;
 	

@@ -62,5 +62,32 @@ public class prodottoDAO {
 		
 		
 	}
+	public ArrayList<prodotto> doFindOff()
+	{
+		ArrayList<prodotto> prodotto=new ArrayList<>();
+		
+		try (Connection conn = ConnPool.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM offerte WHERE categoria='offerta'");
+            ResultSet rs = ps.executeQuery();
+            if(!rs.next()) {
+            	return prodotto=null;
+            }else {
+            	prodotto p=new prodotto(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9));
+            	prodotto.add(p);
+            }
+            
+            while(rs.next()) {
+            	prodotto p=new prodotto(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9));
+            	prodotto.add(p);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+        return prodotto;
+		
+		
+	}
 	
 }
