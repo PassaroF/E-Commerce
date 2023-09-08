@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="Controller.BeanIndex"%>
+    <%@page import="java.util.ArrayList"%>
+    <%@page import="Model.prodotto"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +15,16 @@
 </head>
 <body>
 
+
+
 <header>
 	<a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
 	<div class="group">
 	<ul class="navigation">
 		<li><a href="#">Home</a></li>
 		<li><a href="#">Offerte</a></li>
-		<li><a href="#">Catalogo</a></li>
+		<li><a href="#">Console</a></li>
+		<li><a href="#">Pc</a></li>
 
 	
 	<div class="user">
@@ -47,107 +53,46 @@
 
 	<section id="prod">
 	<h2>I nostri prodotti PC</h2>
-		<div class="pro-container">
+<div class="pro-container">
+    <%
+        // Crea un'istanza del JavaBean
+        BeanIndex bean = new BeanIndex();
+
+        // Recupera i dati dal JavaBean
+        ArrayList<prodotto> pro = bean.getPc();
+
+        // Utilizza i dati nella pagina JSP
+        if (pro != null) {
+            for (prodotto p : pro) {
+    %>	
 		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
+		<img src="immagini/<%= p.getImmagine() %>"  alt="">
 
 				<div class="descr">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
-
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
-
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
-
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
+					<span><%= p.getMarca() %></span>
+					<h5><%= p.getNome() %></h5>
+					<h4><%= p.getCosto() %>€</h4>
 				</div>
 				<ion-icon name="cart-outline" class="carrello"></ion-icon>
 				
 		</div>
 		
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
+    <%
+            }
+        } else {
+    %>
+            <li>
+                <font color="red">
+                    <h3 id="not">Errore, ricaricare la pagina</h3>
+                </font>
+            </li>
+    <%
+        }
+    %>
 
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
-
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
-
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
-
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
-		<div class="prodotto">
-		<img src="immagini/pc3.jpg"  alt="">
-
-				<div class="descr">
-					<span>adidas</span>
-					<h5>ciao pepp</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
-				
-		</div>
+	
+		
+		
 		</div>
 </section>
 
@@ -155,95 +100,41 @@
 	<section id="cons">
 	<h2>Le Nostre Console</h2>
 		<div class="con-container">
+		<%
+        // Crea un'istanza del JavaBean
+        BeanIndex bean1 = new BeanIndex();
+
+        // Recupera i dati dal JavaBean
+        ArrayList<prodotto> cons = bean.getX();
+
+        // Utilizza i dati nella pagina JSP
+        if (cons != null) {
+            for (prodotto c : cons) {
+    %>	
 		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
+		<img src="immagini/<%= c.getImmagine() %>"  alt="">
 
 				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
-				
-		</div>
-		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
-
-				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
-				
-		</div>
-		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
-
-				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
-				
-		</div>
-		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
-
-				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
-				
-		</div>
-		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
-
-				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
-				
-		</div>
-		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
-
-				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
-				
-		</div>
-		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
-
-				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
-				</div>
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
-				
-		</div>
-		<div class="console">
-		<img src="immagini/cons1.jpg"  alt="">
-
-				<div class="descr1">
-					<span>adidas</span>
-					<h5>Francesco Shdfghsdfshdfsyds</h5>
-					<h4>21345€</h4>
+					<span><%= c.getMarca() %></span>
+					<h5><%= c.getNome() %></h5>
+					<h4><%= c.getCosto() %>€</h4>
 				</div>
 				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
 				
 		</div>
 		
+    <%
+            }
+        } else {
+    %>
+            <li>
+                <font color="red">
+                    <h3 id="not">Errore, ricaricare la pagina</h3>
+                </font>
+            </li>
+    <%
+        }
+    %>
 		</div>
 </section>
 
@@ -287,7 +178,6 @@
 	 btnchiudi.classList.remove('active');
 	 btncerca.classList.remove('active');
   }
-
  </script>
 <jsp:include page="footer.jsp" />
 </body>
