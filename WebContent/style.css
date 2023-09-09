@@ -20,6 +20,7 @@ header
 position:absolute;
 top:0;
 left:0;
+
 width:100%;
 height:150px;	
 padding:10px 30px;
@@ -29,7 +30,16 @@ align-items:center;
 box-shadow:0 15px 15px rgba(0,0,0,0.05);
 
 }
-
+.logo {
+    max-width: 80%; /* Imposta la larghezza desiderata del logo */
+    height: auto; /* Mantieni l'aspect ratio */
+}
+.invisibile {
+    border: none; /* Rimuove il bordo */
+    padding: 0; /* Rimuove il padding */
+    background: none; /* Rimuove lo sfondo (se presente) */
+    cursor: pointer; /* Cambia il cursore quando si passa sopra il bottone */
+}
 .group
 {
 display:flex;
@@ -183,9 +193,10 @@ position:relative;
 
 
 /*responsive l'header*/
-@media (max-width: 1100px)
+@media (max-width: 1200px)
 {
 	.btncerca{
+		top:20px;
 		left:0;
 	
 	}
@@ -238,30 +249,34 @@ flex-direction:column;
 
 #off{
     margin-top: 180px;
-    
-    width: 100%;
-    padding:20px 20px 20px 20px; 
+    padding-bottom: 20px; 
+    padding-left: 20px;
+    width: 100%; 
     text-align:center;
-    background:#ff4d4d;
+    
+     
+    
 }
+
 #off h2{
 	
 	 font-size: 46px;
+	 
 }
+
 #off .offerta{
 	width:22%;
 	margin-top:20px;
 	margin-right:30px;
-	padding :20px;
-	
+	min-width:250px;
+	padding:20px 20px 20px;
 	border:1px solid #cce7d0;
 	border-radius:25px;
 	cursor:pointer;
-	box-shadow:20px 20px 30px rgba(0,0,0,0.2);
+	box-shadow:20px 20px 30px rgba(0,0,0,0.09);
 	background:#fff;
 	transition:0.2s ease;
 	position:relative;
-
 	
 	
 }
@@ -402,6 +417,7 @@ flex-direction:column;
 	border:1px solid #cce7d0;
 	margin-right: -180px;
 	margin-bottom:10px;
+	
 }
 
 #cons .console:hover{
@@ -504,4 +520,78 @@ flex-direction:column;
 	
 	
 }
+
+/*prodotto singolo*/
+
+#dett{
+	
+	display:flex;
+	margin-top:180px;
+}
+#dett .dett-img
+{ 
+	
+	border:1px solid #cce7d0;
+	border-radius:25px;
+	cursor:pointer;
+	box-shadow:20px 20px 30px rgba(0,0,0,0.09);
+	background:#fff;
+	transition:0.2s ease;
+	position:relative;
+ width:25%;
+ margin-right:50px;
+  margin-left:70px;
+ padding:20px 20px 20px;
+}
+
+#dett .dettaglio{
+	width:50%;
+	padding-top:30px;
+	
+}
+
+
+#dett .dettaglio h2{
+	font-size:26px;
+	padding-top:10px;
+	margin-bottom:10px;
+	
+	
+	
+}
+
+#dett .dettaglio input{
+	padding-left:10px;
+	width:50px;
+	height:47px;
+	font-size:16px;
+	margin-right:10px;
+	margin-bottom:10px;
+	
+}
+
+#dett .dettaglio input:focus{
+	outline:none;
+	
+	
+}
+
+#dett .dettaglio button{
+	
+	
+    padding:10px;
+    color: white;
+    background-color:#088178;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+     
+}
+
+#dett .dettaglio span{
+	
+	line-height:25px;
+	word-wrap: break-word;
+}
+
 

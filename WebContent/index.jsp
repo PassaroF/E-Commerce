@@ -64,7 +64,22 @@
             for (prodotto o : off) {
     %>	
 		<div class="offerta">
-		<img src="immagini/<%= o.getImmagine() %>"  alt="">
+		<form action="prodotto.jsp" method="post">
+    <input type="hidden" name="marca" value="<%= o.getMarca() %>">
+    <input type="hidden" name="nome" value="<%= o.getNome() %>">
+    <input type="hidden" name="costo" value="<%= o.getCosto() %>">
+    <input type="hidden" name="sconto" value="<%= o.getSconto() %>">
+    <input type="hidden" name="immagine" value="<%= o.getImmagine() %>">
+    <input type="hidden" name="id" value="<%= o.getId() %>">
+    <input type="hidden" name="descrizione" value="<%= o.getDescrizione() %>">
+    <button type="submit" class="invisibile">
+        <img src="immagini/<%= o.getImmagine() %>" alt="">
+    </button>
+</form>
+	
+    
+
+		
 
 				<div class="descr2">
 					<span><%= o.getMarca() %></span>
@@ -111,8 +126,18 @@
             for (prodotto p : pro) {
     %>	
 		<div class="prodotto">
-		<img src="immagini/<%= p.getImmagine() %>"  alt="">
-
+		<form action="prodotto.jsp" method="post">
+    <input type="hidden" name="marca" value="<%= p.getMarca() %>">
+    <input type="hidden" name="nome" value="<%= p.getNome() %>">
+    <input type="hidden" name="costo" value="<%= p.getCosto() %>">
+    <input type="hidden" name="sconto" value="0">
+    <input type="hidden" name="immagine" value="<%= p.getImmagine() %>">
+    <input type="hidden" name="id" value="<%= p.getId() %>">
+    <input type="hidden" name="descrizione" value="<%= p.getDescrizione() %>">
+    <button type="submit" class="invisibile">
+        <img src="immagini/<%= p.getImmagine() %>" alt="">
+    </button>
+</form>
 				<div class="descr">
 					<span><%= p.getMarca() %></span>
 					<h5><%= p.getNome() %></h5>
@@ -159,7 +184,19 @@
             for (prodotto c : cons) {
     %>	
 		<div class="console">
-		<img src="immagini/<%= c.getImmagine() %>"  alt="">
+		 <form action="prodotto.jsp" method="post">
+    <input type="hidden" name="marca" value="<%= c.getMarca() %>">
+    <input type="hidden" name="nome" value="<%= c.getNome() %>">
+    <input type="hidden" name="costo" value="<%= c.getCosto() %>">
+    <input type="hidden" name="sconto" value="0">
+    <input type="hidden" name="immagine" value="<%= c.getImmagine() %>">
+    <input type="hidden" name="id" value="<%= c.getId() %>">
+    <input type="hidden" name="descrizione" value="<%= c.getDescrizione() %>">
+    <button type="submit" class="invisibile">
+        <img src="immagini/<%= c.getImmagine() %>" alt="">
+    </button>
+</form>
+		
 
 				<div class="descr1">
 					<span><%= c.getMarca() %></span>
