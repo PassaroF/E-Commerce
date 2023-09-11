@@ -243,6 +243,7 @@ flex-direction:column;
 	
 }
 
+
 }
 
 /*offerte*/
@@ -253,6 +254,7 @@ flex-direction:column;
     padding-left: 20px;
     width: 100%; 
     text-align:center;
+    background-color:#ff3333
     
      
     
@@ -342,7 +344,7 @@ flex-direction:column;
     padding-left: 20px;
     width: 100%; 
     text-align:center;
-    background:#FF0000;
+    background:#107C10;
      
     
 }
@@ -350,13 +352,14 @@ flex-direction:column;
 #cons h2{
 	
 	 font-size: 46px;
+	 color:#fff;
 	 
 }
 #cons h3{
 	
 	 font-size: 32px;
 	 text-align:left;
-	 
+	 color:#fff;
 }
 #cons .console{
 	width:22%;
@@ -594,4 +597,141 @@ flex-direction:column;
 	word-wrap: break-word;
 }
 
+/*carrello*/
+#carrello{
+    margin-top: 180px;
+    padding-bottom: 250px; 
+    padding-left: 20px;
+    width: 100%; 
+    text-align:center;
+}
+.nome-cart {
+  max-width: 100px; 
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+}
 
+
+
+#carrello table{
+	width:100%;
+	border-collapse:collapse;
+	table-layout:fixed;
+	white-space:nowrap;
+}
+
+#carrello table img{
+	width:70px;
+}
+
+#carrello table td:nth-child(1){
+	width:100px;
+	text-align:center;
+}
+
+#carrello table td:nth-child(2){
+	width:150px;
+	text-align:center;
+}
+
+#carrello table td:nth-child(3){
+	width:250px;
+	text-align:center;
+}
+
+#carrello table td:nth-child(4){
+	width:150px;
+	text-align:center;
+}
+#carrello table td:nth-child(5){
+	width:150px;
+	text-align:center;
+}
+#carrello table td:nth-child(6){
+	width:150px;
+	text-align:center;
+}
+
+#carrello{
+	
+overflow-x:auto;	
+	
+}
+
+#carrello table td:nth-child(5) input{
+	width:70px;
+	padding:10px 5px 10px 15px;
+	
+	
+}
+
+#carrello table tbody tr td input{
+	width:50px;
+	
+}
+
+ #carrello table thead{
+ 	border:1px solid #696969;
+ 	border-left:none;
+ 	border-right:none;
+ 
+ }
+ 
+  #carrello table thead td{
+  	font-weight:700;
+  	text-transform:uppercase;
+  	font-size:13px;
+  	padding:18px 0; 
+  	word-wrap: break-word;
+  }
+  #carrello table tbody tr td{
+  	padding-top:15px;
+  
+  }
+  
+ #totale {
+  padding: 30px;
+  margin-top: 40px;
+  border: 2px solid #696969;
+  background-color: #fff;
+  width:70%;
+
+}
+  #pagamento{
+  	display:flex;
+  	flex-wrap:wrap;
+  	justify-content:flex-end;
+  
+  }
+  #totale table{
+   border-collapse:collapse;
+   width:100%;
+   margin-bottom:20px;
+   
+  
+  }
+
+#totale h3{
+	padding-bottom:15px;
+	
+	
+}
+
+#totale button{
+	 padding:10px;
+    color: white;
+    background-color:#088178;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;	
+}
+  #totale table td{
+  
+  width: auto;
+  border:2px solid #088178;
+padding:10px;
+  font-size:13px;
+  
+  
+  }

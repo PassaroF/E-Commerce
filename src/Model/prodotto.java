@@ -1,6 +1,8 @@
 package Model;
 
-public class prodotto {
+import java.io.Serializable;
+
+public class prodotto implements Serializable{
 	private int id;
 	private String nome;
 	private String costo;
@@ -13,7 +15,17 @@ public class prodotto {
 	
 	
 	
-	
+	public prodotto(int id, String nome, String costo, String descrizione, String categoria,
+			String immagine,String marca) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.costo = costo;
+		this.descrizione = descrizione;
+		this.categoria = categoria;
+		this.immagine = immagine;
+		this.marca = marca;
+	}
 	
 	
 	public prodotto(int id, String nome, String costo, String descrizione, String unita, String categoria,

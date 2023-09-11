@@ -21,16 +21,17 @@
 	<a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
 	<div class="group">
 	<ul class="navigation">
-		<li><a href="#">Home</a></li>
-		<li><a href="#">Offerte</a></li>
-		<li><a href="#">Console</a></li>
-		<li><a href="#">Pc</a></li>
+		<li><a href="index.jsp">Home</a></li>
+		<li><a href="index.jsp#off">Offerte</a></li>
+		<li><a href="index.jsp#cons">Console</a></li>
+		<li><a href="index.jsp#prod">Pc</a></li>
+
 
 	
 	<div class="user">
 		<span class="icon1">
 		<ion-icon name="person-outline" class="account"></ion-icon>
-		<ion-icon name="cart-outline" class="cart"></ion-icon>
+		<a href="carrello.jsp"><ion-icon name="cart-outline" class="cart"></ion-icon></a>
 	</span>
 	</div>
 		</ul>
@@ -144,7 +145,17 @@
 					<h4><%= p.getCosto() %>€</h4>
 					
 				</div>
-				<ion-icon name="cart-outline" class="carrello"></ion-icon>
+				
+				<form id="aggiungiAlCarrello_<%= p.getId() %>" action="aggiungi.jsp" method="post">
+				<input type="hidden" name="marca" value="<%= p.getMarca() %>">
+    <input type="hidden" name="nome" value="<%= p.getNome() %>">
+    <input type="hidden" name="costo" value="<%= p.getCosto() %>">
+    <input type="hidden" name="immagine" value="<%= p.getImmagine() %>">
+    <input type="hidden" name="id" value="<%= p.getId() %>">
+    <input type="hidden" name="descrizione" value="<%= p.getDescrizione() %>">
+	<ion-icon name="cart-outline" class="carrello" onclick="aggiungi('<%= p.getId() %>')"></ion-icon>
+
+</form>
 				
 		</div>
 		
@@ -203,6 +214,7 @@
 					<h5><%= c.getNome() %></h5>
 					<h4><%= c.getCosto() %>€</h4>
 				</div>
+				
 				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
 				
 		</div>
@@ -262,6 +274,10 @@
 	 btnchiudi.classList.remove('active');
 	 btncerca.classList.remove('active');
   }
+ function aggiungi(id) {
+	 document.getElementById('aggiungiAlCarrello_'+id).submit();
+     alert("Prodotto aggiunto al carrello con successo!");
+ }
  </script>
 <jsp:include page="footer.jsp" />
 </body>
