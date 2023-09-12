@@ -89,7 +89,7 @@ String nome=request.getParameter("nome");
 				 System.out.println(dt);
 			 Date data2 = dateFormat.parse(dt);
 			 if((data2.equals(data3) || data2.after(data3))&&(data2.equals(data4)||data2.before(data4))) {
-				 ordini g=new ordini(o.getId(),o.getDestinatario(),o.getIndirizzo(),o.getTotale(),o.getProdotti(),dt);
+				 ordini g=new ordini(o.getId(),o.getDestinatario(),o.getIndirizzo(),o.getTotale(),o.getProdotti(),dt,o.getId_u());
 				 ordini.add(g); 
 			 }
 			 

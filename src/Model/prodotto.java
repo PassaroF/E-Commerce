@@ -12,8 +12,21 @@ public class prodotto implements Serializable{
 	private String immagine;
 	private String marca;
 	private String sconto;
+	private int unit;
 	
 	
+	public prodotto(int id, String nome, String costo, String descrizione, String categoria,
+			String immagine,String marca,int unit) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.costo = costo;
+		this.descrizione = descrizione;
+		this.categoria = categoria;
+		this.immagine = immagine;
+		this.marca = marca;
+		this.unit = unit;
+	}
 	
 	public prodotto(int id, String nome, String costo, String descrizione, String categoria,
 			String immagine,String marca) {
@@ -59,6 +72,13 @@ public class prodotto implements Serializable{
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getUnit() {
+		return unit;
+	}
+	public void setUnit(int unit) {
+		this.unit = unit;
 	}
 	public String getNome() {
 		return nome;

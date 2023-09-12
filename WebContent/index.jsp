@@ -153,6 +153,7 @@
     <input type="hidden" name="immagine" value="<%= p.getImmagine() %>">
     <input type="hidden" name="id" value="<%= p.getId() %>">
     <input type="hidden" name="descrizione" value="<%= p.getDescrizione() %>">
+     <input type="hidden" name="unit" value=1>
 	<ion-icon name="cart-outline" class="carrello" onclick="aggiungi('<%= p.getId() %>')"></ion-icon>
 
 </form>

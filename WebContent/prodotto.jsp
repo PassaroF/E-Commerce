@@ -25,16 +25,17 @@ String immagine = request.getParameter("immagine");
 	<a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
 	<div class="group">
 	<ul class="navigation">
-		<li><a href="#">Home</a></li>
-		<li><a href="#">Offerte</a></li>
-		<li><a href="#">Console</a></li>
-		<li><a href="#">Pc</a></li>
+		<li><a href="index.jsp">Home</a></li>
+		<li><a href="index.jsp#off">Offerte</a></li>
+		<li><a href="index.jsp#cons">Console</a></li>
+		<li><a href="index.jsp#prod">Pc</a></li>
+
 
 	
 	<div class="user">
 		<span class="icon1">
 		<ion-icon name="person-outline" class="account"></ion-icon>
-		<ion-icon name="cart-outline" class="cart"></ion-icon>
+		<a href="pagina.jsp"><ion-icon name="cart-outline" class="cart"></ion-icon></a>
 	</span>
 	</div>
 		</ul>
@@ -69,8 +70,18 @@ String immagine = request.getParameter("immagine");
 	if (Float.parseFloat(sconto)!=0) { %>
     <h4><del style="color: red;"><%= sconto %>€</del></h4>
 <% } %>
-		<input type="number" value="1" min="1">
-		<button class="normal">Aggiungi al carrello</button>
+		<input type="number" value="1" min="1" id="quantityInput">
+					<form id="aggiungiAlCarrello_<%= Integer.parseInt(id) %>" action="aggiungi.jsp" method="post">
+				<input type="hidden" name="marca" value="<%= marca %>">
+    <input type="hidden" name="nome" value="<%= nome %>">
+    <input type="hidden" name="costo" value="<%= costo %>">
+    <input type="hidden" name="immagine" value="<%= immagine %>">
+    <input type="hidden" name="id" value="<%= Integer.parseInt(id) %>">
+    <input type="hidden" name="descrizione" value="<%= descrizione %>">
+     <input type="hidden" name="unit" value=1 id="unit">
+	
+<button class="normal" onclick="aggiungi()">Aggiungi al carrello</button>
+</form>
 		<h4>Dettagli Prodotto</h4>
 		<span><%= descrizione%></span>
 	</div>
@@ -117,6 +128,24 @@ String immagine = request.getParameter("immagine");
 	 btnchiudi.classList.remove('active');
 	 btncerca.classList.remove('active');
   }
+ function aggiungi() {
+	 alert("Prodotto aggiunto al carrello con successo!");
+ }
+
+ document.addEventListener("DOMContentLoaded", function () {
+   // Seleziona l'elemento input numerico e l'input nascosto
+   var quantityInput = document.getElementById("quantityInput");
+   var unitInput = document.getElementById("unit");
+
+   // Aggiungi un ascoltatore all'evento "input" per catturare i cambiamenti
+   quantityInput.addEventListener("input", function () {
+     // Ottieni il valore inserito dall'utente nell'input numerico
+     var quantityValue = quantityInput.value;
+
+     // Assegna il valore all'input nascosto "unit"
+     unitInput.value = quantityValue;
+   });
+ });
  </script>
 <jsp:include page="footer.jsp" />
 </body>

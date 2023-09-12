@@ -10,12 +10,13 @@ public class ordini {
 	private String totale;
 	private String prodotti;
 	private String data;
+	private int id_u;
 
 	
 
 
 
-	public ordini(int id, String destinatario, String indirizzo, String totale, String prodotti, String data) {
+	public ordini(int id, String destinatario, String indirizzo, String totale, String prodotti, String data,int id_u) {
 		super();
 		this.id = id;
 		this.destinatario = destinatario;
@@ -23,6 +24,7 @@ public class ordini {
 		this.totale = totale;
 		this.prodotti = prodotti;
 		this.data = data;
+		this.id_u = id_u;
 	}
 
 	
@@ -43,7 +45,13 @@ public class ordini {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public int getId_u() {
+		return id_u;
+	}
 
+	public void setId_u(int id_u) {
+		this.id_u = id_u;
+	}
 	public String getDestinatario() {
 		return destinatario;
 	}

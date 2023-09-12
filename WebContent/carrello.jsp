@@ -57,8 +57,10 @@
 			<td>SubTotale</td>			
 		</tr>
 	</thead>
+	
 	 <%ArrayList<prodotto> carrello = null;
-	 int n=0;
+	 double total = 0.0;
+		int n = 0;
 	 if (session.getAttribute("cart") == null) {
 		 carrello = new ArrayList<prodotto>();%>
 		 <p>Il tuo carrello è vuoto.</p><%
@@ -66,19 +68,27 @@
 		    carrello = (ArrayList<prodotto>) session.getAttribute("cart");
 		} else {
          carrello= (ArrayList<prodotto>) session.getAttribute("cart");
-			n=carrello.size();
+			
         // Verifica se il carrello esiste e se contiene prodotti
         if (carrello != null && !carrello.isEmpty()) {
+        	 for (prodotto pro : carrello) {
+                 total += Double.parseDouble(pro.getCosto()) * pro.getUnit();
+                 n += pro.getUnit();
+             }
     %>
 	<tbody>
-	<% for (prodotto pro : carrello) { %>
+	<%
+	
+
+	 for (prodotto pro : carrello) { %>
 	<tr>
 		<td><a href="#" class="rimuovi-prodotto" data-prodotto-id="<%= pro.getId()%>" onclick="rimuoviProdotto(<%= pro.getId()%>)"><i class="far fa-times-circle"></i></a></td>
 	 	<td><img src="immagini/<%= pro.getImmagine() %>" alt=""></td>
 	 	<td class="nome-cart"><%= pro.getDescrizione() %></td>
 	 	<td><%= pro.getCosto() %></td>
-	 	<td><input type="number" value="1" min="1"></td>
-	 	<td>234€</td>
+	 	
+	 	<td><input type="number" id="quantity<%= pro.getId() %>" value="<%= pro.getUnit() %>" min="1" onchange="updateTotal(<%= pro.getId() %>,<%= Float.parseFloat(pro.getCosto()) %>)"></td>
+<td class="subTotalCell" id="sub<%= pro.getId() %>"><span><%= Float.parseFloat(pro.getCosto()) * pro.getUnit() %></span></td>
 	 	
 	</tr>
 	 <% } %>
@@ -101,12 +111,12 @@
 		<h3>Totale Carrello</h3>
 		<table>
 			<tr>
-				<td>N.Articoli</td>
-				<td><%= n %></td>
+				<td><strong>N.Articoli</strong></td>
+				<td id="n"><strong><%= n %></strong></td>
 			</tr>
 			<tr>
 				<td><strong>Totale</strong></td>
-				<td><strong>1234€</strong></td>
+				<td id="total1"><strong><%= total %></strong></td>
 			
 			</tr>
 		
@@ -187,8 +197,40 @@
 	        }
 	    });
 	}
+ 
+ function updateTotal(productId, costo) {
+	    var quantityInput = document.getElementById("quantity" + productId);
+	    var subTotalCell = document.getElementById("sub" + productId); // Seleziona il subTotal corrispondente
+	    var nuovoTotale = 0.0;
+	    var nuovoN = 0;
+
+	    if (quantityInput && subTotalCell) { // Verifica se entrambi gli elementi sono validi
+	        var quantity = parseInt(quantityInput.value);
+	        var newTotal = quantity * costo;
+	        subTotalCell.querySelector("span").innerHTML = newTotal.toFixed(2);
+
+	        // Itera attraverso tutte le righe del carrello per calcolare il nuovo totale e il nuovo N
+	        var carrelloRows = document.querySelectorAll("#carrello tbody tr");
+	        carrelloRows.forEach(function(row) {
+	            var subtotalCell = row.querySelector(".subTotalCell span");
+	            var quantityInput = row.querySelector("input[type='number']");
+
+	            if (subtotalCell && quantityInput) { // Verifica se gli elementi sono validi
+	                var subtotal = parseFloat(subtotalCell.innerHTML);
+	                nuovoTotale += subtotal;
+
+	                var quantity = parseInt(quantityInput.value);
+	                nuovoN += quantity;
+	            }
+	        });
+
+	        // Aggiorna gli elementi HTML con i nuovi valori di N e Total
+	        document.getElementById("n").innerHTML = nuovoN;
+	        document.getElementById("total1").innerHTML = nuovoTotale.toFixed(2);
+	    }
+	}
  </script>
- </script>
+ 
 <jsp:include page="footer.jsp" />
 </body>
 </html>
