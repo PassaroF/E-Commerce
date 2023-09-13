@@ -8,6 +8,7 @@
     <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./login.css">
     </head>
@@ -52,6 +53,8 @@ function control(){
     </script>
    
 <body>
+
+
     <div class="container">
     <form id="form" action="Login" method="post" name="form" >
             <h1>BYTEshop</h1>
@@ -74,6 +77,11 @@ function control(){
             <button type="submit" id="sign_user" onClick="return control();">Login</button>
         </form>
     </div>
+    
+  
+
+
+    
 </body>
 </html>
 </html>

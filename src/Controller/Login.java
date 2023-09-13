@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.ordini;
 import Model.ordiniDAO;
@@ -60,12 +61,14 @@ public class Login extends HttpServlet {
 			
 			ArrayList<ordini>ord=service.doFindAllOrders();
 			
-			if(ord!=null) {
+			
+				HttpSession session = request.getSession();
+				session.setAttribute("loggedInUser", email);
 			request.setAttribute("ordini",ord);
 			request.setAttribute("nome",nome);		
 			RequestDispatcher rd=request.getRequestDispatcher("admin.jsp");
 			 rd.forward(request, response);
-			}
+			
 			}
 			
 			else {
@@ -77,7 +80,8 @@ public class Login extends HttpServlet {
 			 }
 	}
 		else if(Controllo_Login.controllo(email, pass)) {
-			
+			HttpSession session = request.getSession();
+			session.setAttribute("loggedInUser", email);
 			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 			 rd.forward(request, response);
 			

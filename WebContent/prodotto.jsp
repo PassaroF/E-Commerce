@@ -54,7 +54,10 @@ String immagine = request.getParameter("immagine");
 	
 	</div>
 </header>
-
+ <div class="alert" id="myAlert">
+	<span><i class="fas fa-check-square"></i></span>
+	<span class="msg-alert">Prodotto aggiunto al carrello</span>
+</div>
 
 	<section id="dett">
 		
@@ -129,8 +132,29 @@ String immagine = request.getParameter("immagine");
 	 btncerca.classList.remove('active');
   }
  function aggiungi() {
-	 alert("Prodotto aggiunto al carrello con successo!");
+	 var header = document.querySelector('header');
+
+	    // Scorrimento verso l'header
+	    header.scrollIntoView({ behavior: 'smooth' });
+	
+	 document.getElementById('myAlert').style.display = 'block';
+     // Nascondi il messaggio di avviso dopo 3 secondi
+     setTimeout(function () {
+         document.getElementById('myAlert').style.display = 'none';
+     }, 2000);
+  // Disabilita il pulsante per evitare clic multipli durante l'attesa
+     document.querySelector('button').disabled = true;
+
+     // Attendi 4 secondi (4000 millisecondi)
+     setTimeout(function () {
+         // Riemetti il pulsante in uno stato abilitato
+         document.querySelector('button').disabled = false;
+
+         document.getElementById('aggiungiAlCarrello_<%= Integer.parseInt(id) %>').submit();
+     }, 1000);
+     
  }
+
 
  document.addEventListener("DOMContentLoaded", function () {
    // Seleziona l'elemento input numerico e l'input nascosto

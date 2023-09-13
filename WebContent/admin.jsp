@@ -16,8 +16,13 @@
     <title>Admin Dashboard Panel</title> 
 </head>
 <body>
-
-    <nav>
+ <%
+    // Controlla se l'utente è loggato
+    String loggedInUser = (String) session.getAttribute("loggedInUser");
+    if (loggedInUser != null) {
+        
+    %>
+       <nav>
         <div class="logo-name">
             <div class="logo-image">
                 <img src="immagini/logo3.jpg" alt="">
@@ -183,6 +188,15 @@
 	   
 	</script>
 
+        
+        
+    <%
+    } else {
+        
+        response.sendRedirect("login.jsp"); // Cambia con la tua pagina di login
+    }
+    %>
+    
 
 </body>
 </html>

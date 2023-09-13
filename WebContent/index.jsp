@@ -10,7 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> 
-    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
 <title>homepage</title>
 </head>
 <body>
@@ -30,7 +31,10 @@
 	
 	<div class="user">
 		<span class="icon1">
-		<ion-icon name="person-outline" class="account"></ion-icon>
+		<a href="account.jsp" class="account">
+    <ion-icon name="person-outline"></ion-icon>
+</a>
+		
 		<a href="carrello.jsp"><ion-icon name="cart-outline" class="cart"></ion-icon></a>
 	</span>
 	</div>
@@ -50,6 +54,12 @@
 	
 	</div>
 </header>
+
+
+<div class="alert" id="myAlert">
+	<span><i class="fas fa-check-square"></i></span>
+	<span class="msg-alert">Prodotto aggiunto al carrello</span>
+</div>
 <section id="off">
 	<h2>Le nostre Offerte</h2>
 <div class="off-container">
@@ -276,9 +286,23 @@
 	 btncerca.classList.remove('active');
   }
  function aggiungi(id) {
-	 document.getElementById('aggiungiAlCarrello_'+id).submit();
-     alert("Prodotto aggiunto al carrello con successo!");
+	 var header = document.querySelector('header');
+
+	    // Scorrimento verso l'header
+	    header.scrollIntoView({ behavior: 'smooth' });
+	
+	 document.getElementById('myAlert').style.display = 'block';
+     // Nascondi il messaggio di avviso dopo 3 secondi
+     setTimeout(function () {
+         document.getElementById('myAlert').style.display = 'none';
+     }, 2000);
+     setTimeout(function () {
+    	 document.getElementById('aggiungiAlCarrello_' + id).submit();
+     }, 1000);
+     
  }
+
+
  </script>
 <jsp:include page="footer.jsp" />
 </body>
