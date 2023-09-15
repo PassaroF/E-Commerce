@@ -82,6 +82,7 @@ public class Login extends HttpServlet {
 		else if(Controllo_Login.controllo(email, pass)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loggedInUser", email);
+			session.setAttribute("pagameto", null);
 			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 			 rd.forward(request, response);
 			

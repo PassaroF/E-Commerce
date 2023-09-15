@@ -98,7 +98,17 @@
 					<h4><%= o.getCosto() %>€</h4>
 					<h4><del style="color: red;"><%= o.getSconto() %>€</del></h4>
 				</div>
-				<ion-icon name="cart-outline" class="carrello2"></ion-icon>
+				<form id="aggiungiAlCarrello_<%= o.getId() %>" action="aggiungi.jsp" method="post">
+				<input type="hidden" name="marca" value="<%= o.getMarca() %>">
+    <input type="hidden" name="nome" value="<%= o.getNome() %>">
+    <input type="hidden" name="costo" value="<%= o.getCosto() %>">
+    <input type="hidden" name="immagine" value="<%= o.getImmagine() %>">
+    <input type="hidden" name="id" value="<%= o.getId() %>">
+    <input type="hidden" name="descrizione" value="<%= o.getDescrizione() %>">
+     <input type="hidden" name="unit" value=1>
+	<ion-icon name="cart-outline" class="carrello2" onclick="aggiungi('<%= o.getId() %>')"></ion-icon>
+
+</form>
 				
 		</div>
 		
@@ -225,8 +235,18 @@
 					<h5><%= c.getNome() %></h5>
 					<h4><%= c.getCosto() %>€</h4>
 				</div>
+				<form id="aggiungiAlCarrello_<%= c.getId() %>" action="aggiungi.jsp" method="post">
+				<input type="hidden" name="marca" value="<%= c.getMarca() %>">
+    <input type="hidden" name="nome" value="<%= c.getNome() %>">
+    <input type="hidden" name="costo" value="<%= c.getCosto() %>">
+    <input type="hidden" name="immagine" value="<%= c.getImmagine() %>">
+    <input type="hidden" name="id" value="<%= c.getId() %>">
+    <input type="hidden" name="descrizione" value="<%= c.getDescrizione() %>">
+     <input type="hidden" name="unit" value=1>
+	<ion-icon name="cart-outline" class="carrello1" onclick="aggiungi('<%= c.getId() %>')"></ion-icon>
+
+</form>
 				
-				<ion-icon name="cart-outline" class="carrello1"></ion-icon>
 				
 		</div>
 		

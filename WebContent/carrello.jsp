@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.ArrayList" %>
 <%@ page import="Model.prodotto" %>
+<%@page import="Model.utente"%>
+<%@page import="Controller.Bean_Account"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +13,54 @@
     <link rel="stylesheet" href="style.css"> 
 <title>Carrello</title>
 </head>
+<%
+    // Controlla se l'utente è loggato
+    String loggedInUser = (String) session.getAttribute("loggedInUser");
+    if (loggedInUser != null) {
+    	 Bean_Account bean = new Bean_Account();
+
+         // Recupera i dati dal JavaBean
+         ArrayList<utente> off = bean.getUtente();
+
+         // Utilizza i dati nella pagina JSP
+         String nome = "";
+         String cognome = "";
+         String via = "";
+         String civico = "";
+         String nazione = "";
+         String provincia = "";
+         String cap = "";
+         String citta = "";
+         String indirizzo = "";
+         String telefono = "";
+         int id = 0;
+         if (off != null) {
+             for (utente u : off) {
+                 if (u.getEmail().equals(loggedInUser)) {
+                     nome = u.getNome();
+                     id = u.getId();
+                     cognome = u.getCognome();
+                     via = u.getVia();
+                     civico = u.getCivico();
+                     nazione = u.getNazione();
+                     provincia = u.getProvincia();
+                     cap = u.getCap();
+                     citta = u.getCitta();
+                     telefono = u.getTelefono();
+                 }
+             }
+             indirizzo = via + " " + civico + " " + nazione + " " + provincia + " " + citta + " " + cap;
+             session.setAttribute("id", id);
+             session.setAttribute("nome", nome);
+             session.setAttribute("cognome", cognome);
+             session.setAttribute("indirizzo", indirizzo);
+             session.setAttribute("telefono", telefono);
+         
+         }
+         %>	
+    	
 <body>
+
 <header>
 	<a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
 	<div class="group">
@@ -48,6 +97,7 @@
 </header>
 
 <section id="carrello">
+
 	<table width="100%">
 	<thead>
 		<tr>
@@ -69,6 +119,7 @@
 		    // Se esiste, ottieni il valore e assegnalo all'arraylist "carrello"
 		    carrello = (ArrayList<prodotto>) session.getAttribute("cart");
 		} else {
+			
          carrello= (ArrayList<prodotto>) session.getAttribute("cart");
 			
         // Verifica se il carrello esiste e se contiene prodotti
@@ -106,11 +157,15 @@
 	
 	
 	</table>
-
+<span style="color: red;">${mess}</span>
 <section id="pagamento">
 
 	<div id=totale>
+	<h3>Il Tuo Indirizzo</h3>
+	<h4><%= nome+" "+cognome %></h4>
+	<h4><%= indirizzo %></h4>
 		<h3>Totale Carrello</h3>
+		
 		<table>
 			<tr>
 				<td><strong>N.Articoli</strong></td>
@@ -118,19 +173,20 @@
 			</tr>
 			<tr>
 				<td><strong>Totale</strong></td>
-				<td id="total1"><strong><%= total %></strong></td>
+				<td id="total1"><strong><%=total %></strong></td>
+				<%session.setAttribute("tot",Double.toString(total)); %>
 			
 			</tr>
 		
 		
 		</table>
-		
-		<button class=normal>Procedi al Pagamento</button>
+		<h3 id="not" >${mess}</h3>
+		<form id="form" action="Pagamento" method="post" name="form" >
+		<button class=normal type="submit"  onclick="return confermaPagamento()" id="paga" >Procedi al Pagamento</button>
+</form>
 </div>
 
 </section>
-
-
 
 
 
@@ -231,8 +287,36 @@
 	        document.getElementById("total1").innerHTML = nuovoTotale.toFixed(2);
 	    }
 	}
+ 
+ 
+ 
+ 
+  // Dichiarazione dell'array JavaScript
+
+ // Funzione per verificare il carrello e reindirizzare
+function confermaPagamento() {
+        var conferma = confirm("Sei sicuro di voler procedere al pagamento?");
+
+        if (conferma) {
+              
+        } else {
+            console.log("Pagamento annullato");
+            return false;
+        }
+    }
+
  </script>
+
+
+ 
+ 
  
 <jsp:include page="footer.jsp" />
+
+<%
+    } else {
+        response.sendRedirect("login.jsp"); 
+    }
+%>
 </body>
 </html>

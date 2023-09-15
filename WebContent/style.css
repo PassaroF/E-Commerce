@@ -41,6 +41,40 @@ z-index:999;
 	
 	
 }
+
+.ute{
+	margin-top:180px;
+	
+	
+}
+
+#alert3{
+background:#8cff8c;
+	padding:40px 40px;
+	margin-left:35%;
+	margin-top:-205px;
+	min-width:420px;
+	position:absolute;
+	border-radius:4px;
+	color:#008000;
+	border-left:8px solid #008000;
+	z-index: 9999; 
+
+	
+
+}
+.alert3 fas fa-check-square{
+	position:absolute;
+	left:20px;
+	top:50%;
+	transform:translateY(-50%);
+	color:#008000;
+	font-size:50px;	
+}
+.alert3 msg-alert{
+	padding:0 20px;
+	font-size:18px;
+}
 .logout-button {
     z-index: 999;
 }

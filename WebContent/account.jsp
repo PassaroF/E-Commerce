@@ -15,12 +15,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <title>Homepage</title>
 </head>
+
+<style></style>
 <body>
 <%
     // Controlla se l'utente è loggato
     String loggedInUser = (String) session.getAttribute("loggedInUser");
     if (loggedInUser != null) {
-%>
+    	
+    	%>
+
 
 <header>
     <a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
@@ -53,10 +57,14 @@
     
 </header>
 
+
+    	
 <form action="logout.jsp" method="post">
     <input type="submit" value="Logout" class="logout-button" id="logoutButton">
 </form>
 <section style="margin-top: 10px;margin-bottom:350px;">
+
+    	
 <%
     // Crea un'istanza del JavaBean
     Bean_Account bean = new Bean_Account();
@@ -72,9 +80,12 @@
         	if(u.getEmail().equals(loggedInUser)){nome=u.getNome();
         	id=u.getId(); }
         }
+        session.setAttribute("id",id);
 %>
-
-
+<div style="text-align: center;">
+  <span style="color: #008000;; background-color: #8cff8c; padding: 30px; font-size: 35px;">${msg}</span>
+</div>
+<span "style=color:green;">${msg}</span>
 <div class="top">
     <h3 id="nome">Ciao,<%= nome %></h3>
 </div>
@@ -118,6 +129,7 @@
         
     }
 %>
+
 </section>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -156,7 +168,8 @@
         btnchiudi.classList.remove('active');
         btncerca.classList.remove('active');
     }
-
+    
+    
     
 </script>
 <jsp:include page="footer.jsp" />
