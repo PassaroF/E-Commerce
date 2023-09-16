@@ -56,16 +56,12 @@ public class Login extends HttpServlet {
 			nome=Controllo_Admin.check(email, pass);
 			if(nome!=null){
 					
-			ordiniDAO service=new ordiniDAO();
-			
-			
-			ArrayList<ordini>ord=service.doFindAllOrders();
-			
-			
+		
 				HttpSession session = request.getSession();
 				session.setAttribute("loggedInUser", email);
-			request.setAttribute("ordini",ord);
-			request.setAttribute("nome",nome);		
+				session.setAttribute("nome", nome);
+			
+				
 			RequestDispatcher rd=request.getRequestDispatcher("admin.jsp");
 			 rd.forward(request, response);
 			

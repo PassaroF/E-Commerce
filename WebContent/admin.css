@@ -27,7 +27,7 @@
 
 body{
     min-height: 100vh;
-    background-color: var(--primary-color);
+    background-color: #fff;
 }
 body.dark{
     --primary-color: #3A3B3C;
@@ -127,7 +127,7 @@ nav .menu-items{
     height: 5px;
     width: 5px;
     border-radius: 50%;
-    background-color: var(--primary-color);
+    background-color: #0E4BF1;
 }
 body.dark li a:hover:before{
     background-color: var(--text-color);
@@ -153,7 +153,7 @@ nav.close li a .link-name{
 }
 .nav-links li a:hover i,
 .nav-links li a:hover .link-name{
-    color: var(--primary-color);
+    color: #0E4BF1;
 }
 body.dark .nav-links li a:hover i,
 body.dark .nav-links li a:hover .link-name{
@@ -164,7 +164,6 @@ body.dark .nav-links li a:hover .link-name{
     border-top: 1px solid var(--border-color);
     
 }
-
 
 .menu-items .mode{
     display: flex;
