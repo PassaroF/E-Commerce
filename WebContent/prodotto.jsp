@@ -34,8 +34,8 @@ String immagine = request.getParameter("immagine");
 	
 	<div class="user">
 		<span class="icon1">
-		<ion-icon name="person-outline" class="account"></ion-icon>
-		<a href="pagina.jsp"><ion-icon name="cart-outline" class="cart"></ion-icon></a>
+		<a href="account.jsp"><ion-icon name="person-outline" class="account"></ion-icon></a>
+		<a href="carrello.jsp"><ion-icon name="cart-outline" class="cart"></ion-icon></a>
 	</span>
 	</div>
 		</ul>

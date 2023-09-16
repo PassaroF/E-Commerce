@@ -134,5 +134,29 @@ public class prodottoDAO {
 		
 		
 	}
-	
+	public int modifica(int id, String nuovoNome, String nuovoCosto, String nuovaDescrizione, String nuovaUnita, String nuovaCategoria, String nuovaImmagine, String nuovaMarca) {
+	    try (Connection conn = ConnPool.getConnection()) {
+	        PreparedStatement ps = conn.prepareStatement("UPDATE prodotti SET nome=?, costo=?, descrizione=?, unita=?, categoria=?, immagine=?, marca=? WHERE id=?");
+	        ps.setString(1, nuovoNome);
+	        ps.setString(2, nuovoCosto);
+	        ps.setString(3, nuovaDescrizione);
+	        ps.setString(4, nuovaUnita);
+	        ps.setString(5, nuovaCategoria);
+	        ps.setString(6, nuovaImmagine);
+	        ps.setString(7, nuovaMarca);
+	        ps.setInt(8, id); // Imposta il parametro ID nella query
+	        int rowsAffected = ps.executeUpdate(); // Esegui la query di eliminazione
+	        
+	        if (rowsAffected > 0) {
+	            // La query ha eliminato almeno una riga, quindi ritorna 1 per indicare il successo
+	            return 1;
+	        } else {
+	            // La query non ha eliminato alcuna riga, quindi ritorna 0 per indicare che l'ID non esiste
+	            return 0;
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return -1; // Ritorna un valore negativo per indicare un errore
+	    }
+	}
 }

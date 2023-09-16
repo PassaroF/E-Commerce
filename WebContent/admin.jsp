@@ -40,11 +40,18 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="admin.jsp">
+                <li><a href="#title_elim">
                     <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Catalogo</span>
+                    <span class="link-name">Elimina</span>
                 </a></li>
-                
+                <li><a href="#title_mod">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Modifica</span>
+                </a></li>
+                <li><a href="#title_add">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Aggiungi</span>
+                </a></li>
                 <li><a href="logout.jsp">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
@@ -200,10 +207,13 @@
                     <%}}%>
                     </table>
                 </div>
-                           <div class="title">
+                           <div class="title_elim" id="title_elim">
                     <i class="uil uil-clock-three"></i>
-                    <span class="text">Prodotti</span>
+                    <span class="text">Elimina Prodotti</span>
     </div>
+    <font color="red">
+     				<h3 id="not1" >${mess_pro}</h3>
+     				</font>
                  <div class="activity-data">
 							<table border ="1" width="100%" align="center">
          <tr>
@@ -243,14 +253,131 @@
                 <td><%=o.getCategoria() %></td>
                  <td><%=o.getImmagine() %></td>
                   <td><%=o.getMarca() %></td>
-                  <td><button type="submit" id="sign_user" onClick="">Modifica</button><td>
-               <td> <button type="submit" class="eliminaProdotto" onClick= "eliminaProdotto(<%=o.getId()%>)">Elimina<%=o.getId()%> </button></td>
+                  
+                 <form action="Elimina" method="post">
+  <input type="hidden" name="id_prodotto" value="<%=o.getId()%>">
+  <td> <button type="submit">Elimina</button></td>
+</form> 
+              
                 
             </tr>
                 
                
             </tr>
                     <%}}%>
+                    </table>
+                </div>
+                             <div class="title_mod"id="title_mod">
+                    <i class="uil uil-clock-three"></i>
+                    <span class="text">Modifica Prodotti</span>
+    </div>
+    <font color="red">
+     				<h3 id="not1" >${mess_pro1}</h3>
+     				</font>
+                 <div class="activity-data">
+							<table border ="1" width="100%" align="center">
+         <tr>
+          <th><b>ID</b></th>
+          <th><b>NOME</b></th>
+          <th><b>COSTO</b></th>
+          <th><b>DESCRIZIONE</b></th>
+          <th><b>UNITA</b></th>
+         <th><b>CATEGORIA</b></th>
+         <th><b>IMMAGINE</b></th>
+         <th><b>MARCA</b></th>
+         <th><b>AZIONI</b></th>
+         </tr>
+                       
+                        
+            <%
+        // Crea un'istanza del JavaBean
+        Bean_Prodotti bean4 = new Bean_Prodotti();
+
+        // Recupera i dati dal JavaBean
+        ArrayList<prodotto> pro2 = bean4.getProdotti();
+
+        // Utilizza i dati nella pagina JSP
+        if (pro2 != null) {
+            for (prodotto o : pro2) {
+   	
+    
+                       
+              
+        %>
+                    <tr>
+               <form action="Modifica" method="post">     
+         <td><input type="text" name="id" value="<%=o.getId() %>" readonly /></td>
+        <td><input type="text" name="nome" value="<%=o.getNome() %>" id="nome_<%=o.getId()%>" readonly /></td>
+        <td><input type="text" name="costo" value="<%=o.getCosto() %>" id="costo_<%=o.getId()%>" readonly /></td>
+         <td><input type="text" name="descrizione" value="<%=o.getDescrizione() %>" id="descrizione_<%=o.getId()%>" readonly /></td>       
+        <td><input type="text" name="unita" value="<%=o.getUnita() %>" id="unita_<%=o.getId()%>" readonly /></td>        
+        <td><input type="text" name="categoria" value="<%=o.getCategoria() %>" id="categoria_<%=o.getId()%>" readonly /></td>         
+        <td><input type="text" name="immagine" value="<%=o.getImmagine() %>" id="immagine_<%=o.getId()%>" readonly /></td>        
+         <td><input type="text" name="marca" value="<%=o.getMarca() %>" id="marca_<%=o.getId()%>" readonly /></td>       
+                 <td><button type="button" onclick="abilitaModifica(<%=o.getId()%>)">Modifica</button></td>
+        <td><button type="submit" id="salva_<%=o.getId()%>" style="display: none;">Salva</button></td>
+    </form>
+</form> 
+              
+                
+            </tr>
+                
+               
+            </tr>
+                    <%}}%>
+                    </table>
+                </div>
+                
+                             <div class="title_add" id="title_add">
+                    <i class="uil uil-clock-three"></i>
+                    <span class="text">Aggiungi Prodotto</span>
+    </div>
+    <font color="red">
+     				<h3 id="not1" >${mess_pro3}</h3>
+     				</font>
+                 <div class="activity-data">
+							<table border ="1" width="100%" align="center">
+         <tr>
+          
+          <th><b>NOME</b></th>
+          <th><b>COSTO</b></th>
+          <th><b>DESCRIZIONE</b></th>
+          <th><b>UNITA</b></th>
+         <th><b>CATEGORIA</b></th>
+         <th><b>IMMAGINE</b></th>
+         <th><b>MARCA</b></th>
+         <th><b>AZIONI</b></th>
+         </tr>
+                       
+                        
+            
+                    <tr>
+               <form action="Aggiungi" method="post">     
+         
+        <td><input type="text" name="nome" value="" id="nome"  /></td>
+        <td><input type="text" name="costo" value="" id="costo"  /></td>
+         <td><input type="text" name="descrizione" value="" id="descrizione%>" /></td>       
+        <td><input type="text" name="unita" value="" id="unita"  /></td>        
+          
+        <td><select name="categoria" id="categoria">
+            <option value="pc">PC</option>
+            <option value="console">Console</option>
+            
+           
+        </select>   </td> 
+        <td><input type="text" name="immagine" value="" id="immagine"  /></td>        
+         <td><input type="text" name="marca" value="" id="marca" /></td>       
+                 
+        <td><button type="submit"">Aggiungi</button></td>
+    </form>
+</form> 
+              
+                
+            </tr>
+                
+               
+            </tr>
+                    
                     </table>
                 </div>
          
@@ -261,10 +388,27 @@
     </section>
    
    
-   <script>
    
+   <script>
+   function abilitaModifica(id) {
+       document.getElementById("nome_" + id).readOnly = false;
+       document.getElementById("costo_" + id).readOnly = false;
+       document.getElementById("descrizione_" + id).readOnly = false;
+       document.getElementById("unita_" + id).readOnly = false;
+       document.getElementById("categoria_" + id).readOnly = false;
+       document.getElementById("immagine_" + id).readOnly = false;
+       document.getElementById("marca_" + id).readOnly = false;
+       
+       // Nascondi il pulsante "Modifica"
+       document.querySelector("button[onclick=\"abilitaModifica(" + id + ")\"]").style.display = "none";
+       
+       // Mostra il pulsante "Salva"
+       document.getElementById("salva_" + id).style.display = "block";
+   }
+   </script>
 
-      </script>  
+
+
         
     <%
     } else {

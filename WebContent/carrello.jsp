@@ -180,9 +180,9 @@
 		
 		
 		</table>
-		<h3 id="not" >${mess}</h3>
+		
 		<form id="form" action="Pagamento" method="post" name="form" >
-		<button class=normal type="submit"  onclick="return confermaPagamento()" id="paga" >Procedi al Pagamento</button>
+		<button class=normal type="submit"  id="paga" >Procedi al Pagamento</button>
 </form>
 </div>
 
@@ -291,19 +291,7 @@
  
  
  
-  // Dichiarazione dell'array JavaScript
-
- // Funzione per verificare il carrello e reindirizzare
-function confermaPagamento() {
-        var conferma = confirm("Sei sicuro di voler procedere al pagamento?");
-
-        if (conferma) {
-              
-        } else {
-            console.log("Pagamento annullato");
-            return false;
-        }
-    }
+  
 
  </script>
 

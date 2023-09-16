@@ -23,9 +23,9 @@
 	<div class="group">
 	<ul class="navigation">
 		<li><a href="index.jsp">Home</a></li>
-		<li><a href="index.jsp#off">Offerte</a></li>
-		<li><a href="index.jsp#cons">Console</a></li>
-		<li><a href="index.jsp#prod">Pc</a></li>
+		<li><a href="#off">Offerte</a></li>
+		<li><a href="#cons">Console</a></li>
+		<li><a href="#prod">Pc</a></li>
 
 
 	

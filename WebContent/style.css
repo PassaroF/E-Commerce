@@ -827,3 +827,8 @@ padding:10px;
   
   }
   
+  .user .icon1 a {
+    color: #2b2b2b !important; /* Colore per tutti i link */
+    text-decoration: none !important; /* Rimuove il sottolineato predefinito */
+}
+  

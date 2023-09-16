@@ -83,9 +83,9 @@
         session.setAttribute("id",id);
 %>
 <div style="text-align: center;">
-  <span style="color: #008000;; background-color: #8cff8c; padding: 30px; font-size: 35px;">${msg}</span>
+  <span style="color: #008000; background-color: #8cff8c; font-size: 35px;">${msg}</span>
 </div>
-<span "style=color:green;">${msg}</span>
+
 <div class="top">
     <h3 id="nome">Ciao,<%= nome %></h3>
 </div>
