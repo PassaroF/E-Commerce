@@ -836,12 +836,14 @@ padding:10px;
 	color:#fff;
     position: fixed; /* Posiziona il div in modo assoluto */
     display:none;
-    margin-top:250px; /* Sposta il div sotto l'input di ricerca */
+    margin-top:100px; 
+    top:20px;/* Sposta il div sotto l'input di ricerca */
    left:30px; /* Sposta il div tutto a sinistra */
     background-color: #088178;; /* Cambia il colore di sfondo */
     padding: 10px; /* Aggiunge spazio interno al div */
     border: 1px solid #ccc; /* Aggiunge un bordo */
-    width: 100%; /* Imposta una larghezza fissa */
+    width: 100%;
+    max-height:150px; /* Imposta una larghezza fissa */
      /* Imposta l'altezza massima desiderata */
     overflow-y: auto;
     z-index: 200000;
