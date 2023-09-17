@@ -4,7 +4,7 @@
 String marca = request.getParameter("marca");
 String nome = request.getParameter("nome");
 String costo = request.getParameter("costo");
-String sconto = request.getParameter("sconto");
+
 String id = request.getParameter("id");
 String descrizione = request.getParameter("descrizione");
 String immagine = request.getParameter("immagine");
@@ -21,8 +21,8 @@ String immagine = request.getParameter("immagine");
 <title>Dettagli</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
 
+<jsp:include page="header.jsp" />
  <div class="alert" id="myAlert">
 	<span><i class="fas fa-check-square"></i></span>
 	<span class="msg-alert">Prodotto aggiunto al carrello</span>
@@ -38,12 +38,10 @@ String immagine = request.getParameter("immagine");
 		<h5><%= marca %></h5>
 		<h2><%= nome %></h2>
 		<h4><%= costo %>€</h4>
-	<% 
-	if (Float.parseFloat(sconto)!=0 && sconto!=null) { %>
-    <h4><del style="color: red;"><%= sconto %>€</del></h4>
-<% } %>
+	 
+	
 		<input type="number" value="1" min="1" id="quantityInput">
-					<form id="aggiungiAlCarrello_<%= Integer.parseInt(id) %>" action="aggiungi.jsp" method="post">
+					<form id="aggiungiAlCarrello_<%= id %>" action="aggiungi.jsp" method="post">
 				<input type="hidden" name="marca" value="<%= marca %>">
     <input type="hidden" name="nome" value="<%= nome %>">
     <input type="hidden" name="costo" value="<%= costo %>">
@@ -108,4 +106,4 @@ String immagine = request.getParameter("immagine");
  </script>
 <jsp:include page="footer.jsp" />
 </body>
-</html>
+</html>l>

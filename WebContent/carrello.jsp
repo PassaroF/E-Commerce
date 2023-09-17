@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.ArrayList" %>
-<%@ page import="Model.prodotto" %>
+<%@page import="Model.prodotto" %>
 <%@page import="Model.utente"%>
 <%@page import="Controller.Bean_Account"%>
 <!DOCTYPE html>
@@ -61,40 +61,7 @@
     	
 <body>
 
-<header>
-	<a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
-	<div class="group">
-	<ul class="navigation">
-		<li><a href="index.jsp">Home</a></li>
-		<li><a href="index.jsp#off">Offerte</a></li>
-		<li><a href="index.jsp#cons">Console</a></li>
-		<li><a href="index.jsp#prod">Pc</a></li>
-
-	
-	<div class="user">
-		<span class="icon1">
-		<a href="account.jsp" class="account">
-                    <ion-icon name="person-outline"></ion-icon>
-                </a>
-		<a href="carrello.jsp"><ion-icon name="cart-outline" class="cart"></ion-icon></a>
-	</span>
-	</div>
-		</ul>
-
-	<div class="search">
-		<span class="icon">
-		<ion-icon name="search-outline" class="btncerca"></ion-icon>
-		<ion-icon name="close-outline" class="btnchiudi"></ion-icon>
-	</span>
-	</div>
-	<ion-icon name="menu-outline" class="menu"></ion-icon>
-	</div>
-
-	<div class="searchBox">
-	<input type="text" placeholder="Ricerca Prodotti">
-	
-	</div>
-</header>
+<jsp:include page="header.jsp" />
 
 <section id="carrello">
 
@@ -183,6 +150,14 @@
 		
 		<form id="form" action="Pagamento" method="post" name="form" >
 		<button class=normal type="submit"  id="paga" >Procedi al Pagamento</button>
+		<div id="modal" class="modal">
+    <div class="modal-content">
+        <!-- Nessun testo iniziale qui -->
+    </div>
+</div>
+
+
+		
 </form>
 </div>
 
@@ -201,43 +176,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
- <script>
- let btncerca=document.querySelector('.btncerca');
- let btnchiudi=document.querySelector('.btnchiudi');
- let searchBox=document.querySelector('.searchBox');
- let navigation=document.querySelector('.navigation');
- let menu=document.querySelector('.menu');
- let header=document.querySelector('header');
- let account=document.querySelector('.account');
- let cart=document.querySelector('.cart');
- btncerca.onclick=function(){
-	 searchBox.classList.add('active');
-	 btnchiudi.classList.add('active');
-	 btncerca.classList.add('active');
-	 account.classList.add('active');
-	 cart.classList.add('active');
-	 menu.classList.add('hide');
-	 header.classList.remove('open');
-	 
-	 
- }
- 
- btnchiudi.onclick=function(){
-	 searchBox.classList.remove('active');
-	 btnchiudi.classList.remove('active');
-	 btncerca.classList.remove('active');
-	 account.classList.remove('active');
-	 cart.classList.remove('active');
-	 menu.classList.remove('hide');
- }
 
- menu.onclick=function(){
- 	 header.classList.toggle('open');
- 	searchBox.classList.remove('active');
-	 btnchiudi.classList.remove('active');
-	 btncerca.classList.remove('active');
-  }
+ <script>
+ 
  function rimuoviProdotto(id) {
 	 console.log("Cliccato su Rimuovi con ID:", id);
 	    $.ajax({
@@ -289,6 +230,61 @@
 	}
  
  
+ const modal = document.getElementById("modal");
+ const modalContent = document.querySelector(".modal-content");
+ const confermaButton = document.createElement("button");
+
+ document.getElementById("paga").addEventListener("click", function (e) {
+     e.preventDefault(); // Evita il comportamento predefinito del modulo
+
+     // Rimuovi il pulsante "Conferma" esistente se ce n'è uno
+     if (modalContent.contains(confermaButton)) {
+         confermaButton.remove();
+     }
+
+     // Mostra il modal
+     modal.style.display = "block";
+
+     // Rimuovi tutti i figli dalla modalContent (pulizia)
+     while (modalContent.firstChild) {
+         modalContent.removeChild(modalContent.firstChild);
+     }
+
+     // Mostra il testo "Procedi al pagamento"
+     const confermaText = document.createElement("p");
+     confermaText.textContent = "Procedi al pagamento";
+     modalContent.appendChild(confermaText);
+
+     // Crea il pulsante "Conferma"
+     confermaButton.textContent = "Conferma";
+     confermaButton.addEventListener("click", function () {
+    	 
+         // Esegui qui il codice per inviare l'ordine al server o eseguire altre azioni necessarie
+         // Redirect alla servlet Pagamento
+         window.location.href = "Pagamento"; // Sostituisci "Pagamento" con l'URL della tua servlet
+     });
+
+     // Aggiungi il pulsante "Conferma" al modal
+     modalContent.appendChild(confermaButton);
+ });
+
+ // Aggiungi un evento per chiudere la finestra modale quando si fa clic al di fuori di essa
+ modal.addEventListener("click", function (event) {
+     if (event.target === modal) {
+         modal.style.display = "none"; // Chiudi il modal se si fa clic al di fuori di esso
+     }
+ });
+
+
+
+
+
+
+
+
+
+
+
  
  
   

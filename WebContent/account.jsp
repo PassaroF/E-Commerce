@@ -25,37 +25,8 @@
     	
     	%>
 
+<jsp:include page="header.jsp" />
 
-<header>
-    <a href="#"><img src="immagini/logo3.png" class="logo" alt=""></a>
-    <div class="group">
-        <ul class="navigation">
-            <li><a href="index.jsp">Home</a></li>
-            <li><a href="index.jsp#off">Offerte</a></li>
-            <li><a href="index.jsp#cons">Console</a></li>
-            <li><a href="index.jsp#prod">Pc</a></li>
-            <div class="user">
-                <span class="icon1">
-                <a href="account.jsp" class="account">
-                    <ion-icon name="person-outline"></ion-icon>
-                </a>
-                <a href="carrello.jsp"><ion-icon name="cart-outline" class="cart"></ion-icon></a>
-                </span>
-            </div>
-        </ul>
-        <div class="search">
-            <span class="icon">
-                <ion-icon name="search-outline" class="btncerca"></ion-icon>
-                <ion-icon name="close-outline" class="btnchiudi"></ion-icon>
-            </span>
-        </div>
-        <ion-icon name="menu-outline" class="menu"></ion-icon>
-    </div>
-    <div class="searchBox">
-        <input type="text" placeholder="Ricerca Prodotti">
-    </div>
-    
-</header>
 
 
     	
@@ -133,44 +104,9 @@
 </section>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <script>
-    let btncerca = document.querySelector('.btncerca');
-    let btnchiudi = document.querySelector('.btnchiudi');
-    let searchBox = document.querySelector('.searchBox');
-    let navigation = document.querySelector('.navigation');
-    let menu = document.querySelector('.menu');
-    let header = document.querySelector('header');
-    let account = document.querySelector('.account');
-    let cart = document.querySelector('.cart');
-    btncerca.onclick = function () {
-        searchBox.classList.add('active');
-        btnchiudi.classList.add('active');
-        btncerca.classList.add('active');
-        account.classList.add('active');
-        cart.classList.add('active');
-        menu.classList.add('hide');
-        header.classList.remove('open');
-    }
-
-    btnchiudi.onclick = function () {
-        searchBox.classList.remove('active');
-        btnchiudi.classList.remove('active');
-        btncerca.classList.remove('active');
-        account.classList.remove('active');
-        cart.classList.remove('active');
-        menu.classList.remove('hide');
-    }
-
-    menu.onclick = function () {
-        header.classList.toggle('open');
-        searchBox.classList.remove('active');
-        btnchiudi.classList.remove('active');
-        btncerca.classList.remove('active');
-    }
-    
-    
-    
+  
 </script>
 <jsp:include page="footer.jsp" />
 

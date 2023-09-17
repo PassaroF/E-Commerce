@@ -18,7 +18,9 @@ public class Bean_Prodotti {
 	
 	ArrayList<prodotto>pro=service.doFindAll();
 	
+	
 	public ArrayList<prodotto>getProdotti(){
+		
         return pro;
     }
 	

@@ -207,7 +207,7 @@
                     <%}}%>
                     </table>
                 </div>
-                           <div class="title_elim" id="title_elim">
+                           <div class="title" id="title_elim">
                     <i class="uil uil-clock-three"></i>
                     <span class="text">Elimina Prodotti</span>
     </div>
@@ -267,7 +267,7 @@
                     <%}}%>
                     </table>
                 </div>
-                             <div class="title_mod"id="title_mod">
+                             <div class="title"id="title_mod">
                     <i class="uil uil-clock-three"></i>
                     <span class="text">Modifica Prodotti</span>
     </div>
@@ -328,7 +328,7 @@
                     </table>
                 </div>
                 
-                             <div class="title_add" id="title_add">
+                             <div class="title" id="title_add">
                     <i class="uil uil-clock-three"></i>
                     <span class="text">Aggiungi Prodotto</span>
     </div>

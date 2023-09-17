@@ -16,5 +16,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/forza/Downloads/json-20230618.jar"/>
+	<classpathentry kind="lib" path="C:/Users/forza/Downloads/gson-2.10.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -379,8 +379,8 @@ function Invio(){
 		<div id="errorBoxC"></div>
 		</div>	
 		<div id="email_form">
-		<input type="text" name="Email" value="" placeholder="Email" class="input_email">
-		<div id="errorBoxE"></div>
+		<input type="text" name="Email" value="" placeholder="Email" class="input_email" id="emailField">
+			<div id="errorBoxE"></div>
 		</div>
 		<div id="re_email_form">
 		<input type="text" name="Re_email" value="" placeholder="Confermare Email" class="input_Re_email">
@@ -457,8 +457,40 @@ function Invio(){
 		<input type="submit" id="sign_user" onClick="return Invio();" value="Registazione">
 		</form>
 		</div>
-	
-	</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+
+
+function verificaEmail() {
+    var email = $("#emailField").val();
+
+    $.ajax({
+        type: "POST",
+        url: "Verifica_mail",
+        data: { email: email },
+        dataType: "json",
+        success: function (response) {
+            var errorBox = $("#errorBoxE");
+            var registrazioneButton = $("#sign_user");
+            if (response.status === "esistente") {
+                // L'email è già stata utilizzata
+                registrazioneButton.prop("disabled", true);
+                errorBox.html("Questa email è già stata utilizzata.");
+                $("#emailField").css("border-color", "red");
+            } else {
+                // L'email è valida
+                registrazioneButton.prop("disabled", false);
+                errorBox.html("");
+                $("#emailField").css("border-color", "green");
+            }
+        }
+    });
+}
+
+$("#emailField").blur(verificaEmail);
+</script>
 	
 </body>
 
