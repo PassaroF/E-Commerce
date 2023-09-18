@@ -4,7 +4,7 @@
     <%@page import="java.util.ArrayList"%>
     <%@page import="Model.prodotto"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
