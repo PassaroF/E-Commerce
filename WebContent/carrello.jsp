@@ -5,7 +5,7 @@
 <%@page import="Model.utente"%>
 <%@page import="Controller.Bean_Account"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,6 +66,7 @@
 <section id="carrello">
 
 	<table width="100%">
+	<caption></caption>
 	<thead>
 		<tr>
 			<td>Rimuovi</td>
@@ -134,6 +135,7 @@
 		<h3>Totale Carrello</h3>
 		
 		<table>
+		<caption></caption>
 			<tr>
 				<td><strong>N.Articoli</strong></td>
 				<td id="n"><strong><%= n %></strong></td>

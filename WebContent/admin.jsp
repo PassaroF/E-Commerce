@@ -8,7 +8,7 @@
     <%@page import="Model.ordini"%>
     <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 
 <head>
@@ -131,6 +131,7 @@
      <div class="activity-data">
     
 						<table id="table" border ="1" width="100%" align="center">
+						<caption></caption>
 							 <tr>
           <th><b>ID</b></th>
           <th><b>CLIENTE</b></th>
@@ -164,6 +165,7 @@
     </div>
 			     <div class="activity-data">
 							<table border ="1" width="100%" align="center">
+							<caption></caption>
          <tr>
           <th><b>ID</b></th>
           <th><b>CLIENTE</b></th>
@@ -216,6 +218,7 @@
      				</font>
                  <div class="activity-data">
 							<table border ="1" width="100%" align="center">
+							<caption></caption>
          <tr>
           <th><b>ID</b></th>
           <th><b>NOME</b></th>
@@ -276,6 +279,7 @@
      				</font>
                  <div class="activity-data">
 							<table border ="1" width="100%" align="center">
+							<caption></caption>
          <tr>
           <th><b>ID</b></th>
           <th><b>NOME</b></th>
@@ -337,6 +341,7 @@
      				</font>
                  <div class="activity-data">
 							<table border ="1" width="100%" align="center">
+							<caption></caption>
          <tr>
           
           <th><b>NOME</b></th>
