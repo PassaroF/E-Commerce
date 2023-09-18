@@ -113,14 +113,7 @@ align-items:center;
 	display: none;
 }
 
-.alert fas fa-check-square{
-	position:absolute;
-	left:20px;
-	top:50%;
-	transform:translateY(-50%);
-	color:#008000;
-	font-size:50px;	
-}
+
 .alert msg-alert{
 	padding:0 20px;
 	font-size:18px;
